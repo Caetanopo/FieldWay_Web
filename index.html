@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="Images/icon.png" type="image/png">
 
-
     <style>
         /* === VARIÁVEIS DA MARCA === */
         :root {
@@ -70,19 +69,21 @@
             align-items: center;
         }
 
+        /* Ajuste de Logo Dinâmica e Mais Visível */
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            color: var(--cor-escura);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
-            .logo span {
-                color: var(--cor-primaria);
+            .logo img {
+                height: clamp(45px, 5vw, 65px); /* Adapta o tamanho suavemente entre telas */
+                width: auto;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .logo:hover img {
+                transform: scale(1.05);
             }
 
         .nav-links {
@@ -113,11 +114,13 @@
                     transition: var(--transicao);
                 }
 
-                .nav-links a:hover::after, .nav-links a.active::after {
+                .nav-links a:hover::after,
+                .nav-links a.active::after {
                     width: 100%;
                 }
 
-                .nav-links a:hover {
+                .nav-links a:hover,
+                .nav-links a.active {
                     color: var(--cor-primaria);
                 }
 
@@ -135,7 +138,6 @@
         .hero {
             height: 100vh;
             min-height: 600px;
-            /* Imagem placeholder de agricultura de precisão com overlay escuro */
             background: linear-gradient(to right, rgba(42, 45, 52, 0.9) 0%, rgba(42, 45, 52, 0.6) 100%), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -233,7 +235,7 @@
             font-size: 1.3rem;
         }
 
-        /* === SEÇÃO DE MARCAS COMPATÍVEIS === */
+        /* === SEÇÃO DE MARCAS COMPATÍVEIS (Design Refeito) === */
         .marcas {
             padding: 5rem 2rem;
             background-color: var(--cor-escura);
@@ -261,43 +263,71 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
         }
 
         .marca-item {
             background-color: var(--cor-escura-alt);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             transition: var(--transicao);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
             .marca-item:hover {
+                transform: translateY(-8px);
                 border-color: var(--cor-primaria);
-                background-color: #24272d;
+                box-shadow: 0 12px 25px rgba(65, 157, 71, 0.15);
             }
 
-            .marca-item h3 {
+        /* Área da imagem branca para acomodar bem as logos */
+        .marca-img-wrapper {
+            background-color: #FFFFFF;
+            height: 140px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+            .marca-img-wrapper img {
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: contain;
+                transition: transform 0.4s ease;
+            }
+
+        .marca-item:hover .marca-img-wrapper img {
+            transform: scale(1.1); /* Zoom interativo */
+        }
+
+        .marca-info {
+            padding: 1.5rem;
+            background-color: var(--cor-escura-alt);
+        }
+
+            .marca-info h3 {
                 color: var(--cor-branca);
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 margin-bottom: 0.5rem;
             }
 
-            .marca-item p {
-                color: #8c98a4;
+            .marca-info p {
+                color: var(--cor-primaria);
                 font-size: 0.9rem;
+                font-weight: 600;
             }
 
-        /* === FOOTER === */
+        /* === FOOTER E LOGO DO RODAPÉ === */
         footer {
             background-color: #1a1c20;
             color: #fff;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem 3rem 2rem;
             text-align: center;
         }
 
@@ -310,10 +340,25 @@
             gap: 1.5rem;
         }
 
+        .footer-logo {
+            margin-bottom: 1rem;
+            display: inline-block;
+            background-color: rgba(255,255,255,0.05); /* Um leve fundo arredondado se a imagem for PNG cortada */
+            padding: 10px 20px;
+            border-radius: 12px;
+        }
+
+            .footer-logo img {
+                height: clamp(60px, 8vw, 85px); /* Logo bem mais visível no rodapé */
+                width: auto;
+                display: block;
+            }
+
         .social-links {
             display: flex;
-            gap: 1rem;
-            font-size: 1.5rem;
+            gap: 1.5rem;
+            font-size: 1.8rem;
+            margin-top: 1rem;
         }
 
             .social-links a {
@@ -323,7 +368,67 @@
 
                 .social-links a:hover {
                     color: var(--cor-primaria);
+                    transform: translateY(-3px);
                 }
+
+        .developer-credits {
+            font-size: 0.85rem;
+            color: #8c98a4;
+            margin-top: 10px;
+        }
+
+            .developer-credits a {
+                color: var(--cor-primaria);
+                text-decoration: none;
+                font-weight: 700;
+                transition: var(--transicao);
+            }
+
+                .developer-credits a:hover {
+                    color: var(--cor-branca);
+                }
+
+        /* === BOTÃO WHATSAPP FLUTUANTE === */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse-whatsapp 2s infinite; /* Efeito de pulso */
+        }
+
+            .whatsapp-float:hover {
+                background-color: #128C7E;
+                transform: scale(1.1);
+                color: #FFF;
+            }
+
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
 
         /* === ANIMAÇÕES === */
         @keyframes slideUp {
@@ -352,12 +457,12 @@
         /* === RESPONSIVIDADE (MOBILE FIRST ADAPTADO) === */
         @media (max-width: 768px) {
             .mobile-menu-btn {
-                display: block; /* Mostra o ícone no mobile */
+                display: block;
             }
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 70px; /* Ajustado pelo script agora, baseando-se na altura do header real */
                 right: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
@@ -393,6 +498,15 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            /* Ajuste Whatsapp Mobile */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 30px;
+            }
         }
     </style>
 </head>
@@ -402,8 +516,7 @@
     <header id="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <!-- Se for usar a imagem da logo, troque o texto abaixo por: <img src="caminho/para/image_b65865.png" alt="Fieldway Logo" height="40"> -->
-                <span>//</span> FIELDWAY
+                <img src="Images/logo grande.png" alt="FIELDWAY Logo">
             </a>
 
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -453,7 +566,7 @@
         </div>
     </section>
 
-    <!-- MARCAS COMPATÍVEIS -->
+    <!-- MARCAS COMPATÍVEIS (Cards Redesenhados) -->
     <section class="marcas reveal" id="marcas">
         <div class="section-header">
             <h2>Marcas Atendidas</h2>
@@ -461,26 +574,54 @@
         </div>
 
         <div class="marcas-grid">
-            <!-- Dados extraídos do chat do WhatsApp -->
             <div class="marca-item">
-                <h3>KUHN</h3>
-                <p>Plantio e Pulverização</p>
+                <div class="marca-img-wrapper">
+                    <img src="Images/Clientes/KUHN.png" alt="Logo KUHN">
+                </div>
+                <div class="marca-info">
+                    <h3>KUHN</h3>
+                    <p>Plantio e Pulverização</p>
+                </div>
             </div>
+
             <div class="marca-item">
-                <h3>Stara</h3>
-                <p>Telemetria e Taxa Variável</p>
+                <div class="marca-img-wrapper">
+                    <img src="Images/Clientes/Stara.png" alt="Logo Stara">
+                </div>
+                <div class="marca-info">
+                    <h3>Stara</h3>
+                    <p>Telemetria e Taxa Variável</p>
+                </div>
             </div>
+
             <div class="marca-item">
-                <h3>Horsch</h3>
-                <p>Alta Velocidade</p>
+                <div class="marca-img-wrapper">
+                    <img src="Images/Clientes/horsch.png" alt="Logo Horsch">
+                </div>
+                <div class="marca-info">
+                    <h3>Horsch</h3>
+                    <p>Alta Velocidade</p>
+                </div>
             </div>
+
             <div class="marca-item">
-                <h3>Semeato</h3>
-                <p>Plantio Direto</p>
+                <div class="marca-img-wrapper">
+                    <img src="Images/Clientes/Semeato.jpg" alt="Logo Semeato">
+                </div>
+                <div class="marca-info">
+                    <h3>Semeato</h3>
+                    <p>Plantio Direto</p>
+                </div>
             </div>
+
             <div class="marca-item">
-                <h3>São José</h3>
-                <p>Implementos Robustos</p>
+                <div class="marca-img-wrapper">
+                    <img src="Images/Clientes/SaoJose.jpg" alt="Logo São José Industrial">
+                </div>
+                <div class="marca-info">
+                    <h3>São José</h3>
+                    <p>Implementos Robustos</p>
+                </div>
             </div>
         </div>
     </section>
@@ -488,30 +629,47 @@
     <!-- FOOTER -->
     <footer id="contato">
         <div class="footer-content">
-            <a href="#" class="logo" style="color: white;">
-                <span style="color: var(--cor-primaria);">//</span> FIELDWAY
+            <a href="#" class="footer-logo">
+                <img src="Images/logo grande.png" alt="FIELDWAY Logo">
             </a>
-            <p>Especializada em fornecimento de sensores originais para máquinas e implementos agrícolas.</p>
+            <p style="max-width: 600px; margin: 0 auto; color: #E0E0E0;">Especializada em fornecimento de sensores originais para máquinas e implementos agrícolas.</p>
+
             <div class="social-links">
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <!-- Alterado o link do Instagram e Insta para links reais se houver, ou hashtags por enquanto -->
+                <a href="https://wa.me/5554991739188" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
             </div>
-            <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">&copy; 2026 FIELDWAY. Todos os direitos reservados.</p>
+
+            <p style="font-size: 0.9rem; color: #8c98a4; margin-top: 1.5rem;">&copy; 2026 FIELDWAY. Todos os direitos reservados.</p>
+
+            <!-- Créditos do Desenvolvedor (Mantive o link original de J. Caetano) -->
+            <div class="developer-credits">
+                Desenvolvido por <a href="https://wa.me/5554991488595" target="_blank" rel="noopener noreferrer">J. Caetano</a>
+            </div>
         </div>
     </footer>
 
+    <!-- BOTÃO FLUTUANTE WHATSAPP (Link atualizado para o número de Vendas/Especialista) -->
+    <a href="https://wa.me/5554991739188" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale com um especialista">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- SCRIPTS -->
     <script>
-        // 1. Menu Mobile Toggle
+        // 1. Menu Mobile Toggle - Corrigido para pegar a altura dinâmica do Header
+        const headerEl = document.getElementById('header');
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
         const mobileIcon = mobileBtn.querySelector('i');
 
         mobileBtn.addEventListener('click', () => {
+            const headerHeight = headerEl.offsetHeight;
+            navLinks.style.top = `${headerHeight}px`;
+            navLinks.style.height = `calc(100vh - ${headerHeight}px)`;
+
             navLinks.classList.toggle('active');
 
-            // Troca o ícone de hamburger para X
             if (navLinks.classList.contains('active')) {
                 mobileIcon.classList.remove('fa-bars');
                 mobileIcon.classList.add('fa-times');
@@ -521,7 +679,7 @@
             }
         });
 
-        // Fecha o menu ao clicar em um link
+        // 2. Fecha o menu ao clicar em um link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -530,7 +688,7 @@
             });
         });
 
-        // 2. Animação de Scroll (Reveal)
+        // 3. Animação de Scroll (Reveal)
         const reveals = document.querySelectorAll('.reveal');
 
         function revealOnScroll() {
@@ -547,6 +705,36 @@
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll(); // Gatilho inicial
+
+        // 4. Script da Linha Verde Dinâmica (ScrollSpy) Corrigido
+        const sections = document.querySelectorAll("section, footer");
+        const navLi = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                // Reduzi a margem de 250 para 300 para o gatilho ser mais rápido
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            // CORREÇÃO: Verifica se o usuário chegou no final absoluto da página
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                current = "contato";
+            }
+
+            // Aplica a classe ativa na linha verde correta
+            navLi.forEach((a) => {
+                a.classList.remove("active");
+                // Verifica se current não está vazio para evitar erros
+                if (current && a.getAttribute("href").includes(current)) {
+                    a.classList.add("active");
+                }
+            });
+        });
     </script>
 </body>
 </html>
