@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIELDWAY - Precisão que guia o campo.</title>
+    <meta name="description" content="Especializada em fornecimento de sensores originais para máquinas e implementos agrícolas.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis de Cores (Fiel à Logo) */
+        :root {
+            --brand-dark: #32353A; /* Cinza chumbo da logo */
+            --brand-green: #419D47; /* Verde do campo da logo */
+            --light-bg: #F8F9FA;
+            --text-color: #212529;
+            --white: #FFFFFF;
+        }
+
+        /* Reset e Base Mobile-First */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header e Navegação */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--brand-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .logo span {
+                color: var(--brand-green);
+            }
+
+        nav {
+            display: none; /* Escondido no mobile, usaria menu hambúrguer */
+        }
+
+        /* Seção Hero (Impacto inicial) */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--brand-dark) 0%, #1a1c1f 100%);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            /* Efeito tecnológico de fundo (Grid) */
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: linear-gradient(var(--brand-green) 1px, transparent 1px), linear-gradient(90deg, var(--brand-green) 1px, transparent 1px);
+                background-size: 40px 40px;
+                opacity: 0.05;
+                z-index: 0;
+            }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #d1d5db;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-green);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+        }
+
+            .btn-primary:hover {
+                background-color: #35823a;
+                transform: translateY(-2px);
+            }
+
+        /* Seção de Serviços e Marcas */
+        .services {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+            .services h2 {
+                color: var(--brand-dark);
+                margin-bottom: 2rem;
+                font-size: 1.8rem;
+            }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .brand-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-bottom: 4px solid var(--brand-green);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+            .brand-card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           Media Queries para Desktop (Responsivo)
+           ========================================= */
+        @media (min-width: 768px) {
+            header {
+                padding: 1.5rem 10%;
+            }
+
+            nav {
+                display: flex;
+                gap: 2rem;
+            }
+
+                nav a {
+                    color: var(--brand-dark);
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: color 0.3s;
+                }
+
+                    nav a:hover {
+                        color: var(--brand-green);
+                    }
+
+            .hero {
+                padding: 8rem 10%;
+                text-align: left;
+            }
+
+                .hero h1 {
+                    font-size: 3.5rem;
+                    max-width: 600px;
+                }
+
+                .hero p {
+                    font-size: 1.2rem;
+                    max-width: 500px;
+                }
+
+            .brands-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <a href="#" class="logo">
+            <!-- Sugestão: Substituir este texto pela tag <img> chamando as logos enviadas -->
+            <span>/|\</span> FIELDWAY
+        </a>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sensores">Sensores</a>
+            <a href="#marcas">Marcas Compatíveis</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Precisão que guia o campo.</h1>
+            <p>Especializada em fornecimento de sensores originais para máquinas e implementos agrícolas de alta performance.</p>
+            <a href="#contato" class="btn-primary">Fale com um Especialista</a>
+        </div>
+    </section>
+
+    <section class="services" id="marcas">
+        <h2>Compatibilidade e Tecnologia</h2>
+        <p>Garantimos a precisão dos seus dados integrando sensores perfeitos para as maiores marcas do mercado.</p>
+
+        <div class="brands-grid">
+            <div class="brand-card">
+                <h3>KUHN</h3>
+                <p>Sensores de plantio e pulverização.</p>
+            </div>
+            <div class="brand-card">
+                <h3>Stara</h3>
+                <p>Telemetria e controle de taxa variável.</p>
+            </div>
+            <div class="brand-card">
+                <h3>Horsch</h3>
+                <p>Monitoramento de precisão em alta velocidade.</p>
+            </div>
+            <div class="brand-card">
+                <h3>Semeato</h3>
+                <p>Soluções para plantio direto.</p>
+            </div>
+            <div class="brand-card">
+                <h3>São José Industrial</h3>
+                <p>Sensores para implementos robustos.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 FIELDWAY. Precisão que guia o campo.</p>
+    </footer>
+
+    <script>
+        // Interatividade 1: Efeito no Header ao rolar a página (Sticky Header dinâmico)
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.padding = '0.8rem 5%';
+                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            } else {
+                header.style.padding = window.innerWidth > 768 ? '1.5rem 10%' : '1rem 5%';
+                header.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Interatividade 2: Fade-in dos elementos ao aparecerem na tela (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.brand-card').forEach((card) => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
