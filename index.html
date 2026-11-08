@@ -69,14 +69,13 @@
             align-items: center;
         }
 
-        /* Ajuste de Logo Dinâmica e Mais Visível */
         .logo {
             display: flex;
             align-items: center;
         }
 
             .logo img {
-                height: clamp(45px, 5vw, 65px); /* Adapta o tamanho suavemente entre telas */
+                height: clamp(45px, 5vw, 65px);
                 width: auto;
                 display: block;
                 transition: transform 0.3s ease;
@@ -124,7 +123,6 @@
                     color: var(--cor-primaria);
                 }
 
-        /* Menu Mobile Hamburger */
         .mobile-menu-btn {
             display: none;
             font-size: 1.5rem;
@@ -134,7 +132,7 @@
             border: none;
         }
 
-        /* === SEÇÃO HERO (BANNER PRINCIPAL) === */
+        /* === SEÇÃO HERO === */
         .hero {
             height: 100vh;
             min-height: 600px;
@@ -235,7 +233,150 @@
             font-size: 1.3rem;
         }
 
-        /* === SEÇÃO DE MARCAS COMPATÍVEIS (Design Refeito) === */
+        /* === SEÇÃO PRODUTOS (CATÁLOGO) === */
+        .produtos {
+            padding: 5rem 2rem;
+            background-color: var(--cor-clara);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .section-header p {
+                color: #6c757d;
+                max-width: 600px;
+                margin: 0 auto;
+                font-size: 1.1rem;
+            }
+
+        .produtos-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .produto-card {
+            background-color: var(--cor-branca);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transicao);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eaeaea;
+        }
+
+            .produto-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+                border-color: var(--cor-primaria);
+            }
+
+        .produto-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-color: #F8F9FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+            .produto-img img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                transition: transform 0.5s ease;
+                mix-blend-mode: multiply; /* Remove o fundo branco de algumas imagens JPG */
+            }
+
+        .produto-card:hover .produto-img img {
+            transform: scale(1.08);
+        }
+
+        .produto-info {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .tag-categoria {
+            display: inline-block;
+            background-color: rgba(65, 157, 71, 0.1);
+            color: var(--cor-primaria);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        .produto-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--cor-escura);
+            line-height: 1.3;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+            .specs-list li {
+                font-size: 0.9rem;
+                color: #666;
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .specs-list i {
+                color: var(--cor-primaria);
+                font-size: 0.8rem;
+                margin-top: 4px;
+            }
+
+        .btn-comprar {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background-color: var(--cor-escura);
+            color: var(--cor-branca);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transicao);
+            border: 1px solid var(--cor-escura);
+        }
+
+            .btn-comprar i {
+                margin-right: 8px;
+            }
+
+            .btn-comprar:hover {
+                background-color: var(--cor-primaria);
+                border-color: var(--cor-primaria);
+            }
+
+        /* === SEÇÃO DE MARCAS === */
         .marcas {
             padding: 5rem 2rem;
             background-color: var(--cor-escura);
@@ -243,20 +384,8 @@
             text-align: center;
         }
 
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-            .section-header h2 {
+            .marcas .section-header h2 {
                 color: var(--cor-branca);
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .section-header p {
-                color: #A0AAB2;
-                max-width: 600px;
-                margin: 0 auto;
             }
 
         .marcas-grid {
@@ -284,7 +413,6 @@
                 box-shadow: 0 12px 25px rgba(65, 157, 71, 0.15);
             }
 
-        /* Área da imagem branca para acomodar bem as logos */
         .marca-img-wrapper {
             background-color: #FFFFFF;
             height: 140px;
@@ -303,7 +431,7 @@
             }
 
         .marca-item:hover .marca-img-wrapper img {
-            transform: scale(1.1); /* Zoom interativo */
+            transform: scale(1.1);
         }
 
         .marca-info {
@@ -323,7 +451,7 @@
                 font-weight: 600;
             }
 
-        /* === FOOTER E LOGO DO RODAPÉ === */
+        /* === FOOTER === */
         footer {
             background-color: #1a1c20;
             color: #fff;
@@ -343,13 +471,13 @@
         .footer-logo {
             margin-bottom: 1rem;
             display: inline-block;
-            background-color: rgba(255,255,255,0.05); /* Um leve fundo arredondado se a imagem for PNG cortada */
+            background-color: rgba(255,255,255,0.05);
             padding: 10px 20px;
             border-radius: 12px;
         }
 
             .footer-logo img {
-                height: clamp(60px, 8vw, 85px); /* Logo bem mais visível no rodapé */
+                height: clamp(60px, 8vw, 85px);
                 width: auto;
                 display: block;
             }
@@ -407,7 +535,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             text-decoration: none;
-            animation: pulse-whatsapp 2s infinite; /* Efeito de pulso */
+            animation: pulse-whatsapp 2s infinite;
         }
 
             .whatsapp-float:hover {
@@ -454,7 +582,7 @@
                 transform: translateY(0);
             }
 
-        /* === RESPONSIVIDADE (MOBILE FIRST ADAPTADO) === */
+        /* === RESPONSIVIDADE === */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -462,7 +590,7 @@
 
             .nav-links {
                 position: fixed;
-                top: 70px; /* Ajustado pelo script agora, baseando-se na altura do header real */
+                top: 70px;
                 right: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
@@ -499,7 +627,6 @@
                 justify-content: center;
             }
 
-            /* Ajuste Whatsapp Mobile */
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -523,9 +650,11 @@
                 <i class="fas fa-bars"></i>
             </button>
 
+            <!-- Menu com a aba Produtos adicionada -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="#inicio" class="active">Início</a></li>
                 <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#marcas">Marcas</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -566,7 +695,155 @@
         </div>
     </section>
 
-    <!-- MARCAS COMPATÍVEIS (Cards Redesenhados) -->
+    <!-- PRODUTOS (NOVA SEÇÃO) -->
+    <section class="produtos reveal" id="produtos">
+        <div class="section-header">
+            <h2>Nossos Produtos</h2>
+            <p>Conheça nossa linha especializada de sensores e módulos para integração agrícola[cite: 13, 14].</p>
+        </div>
+
+        <div class="produtos-grid">
+
+            <!-- Produto 1: Kit Monitor -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/7e79bb2c-3bee-40bb-b6be-f3befac9bec2.jpg_ebb53aa0_2K.jpg" alt="Kit Monitor de Plantio">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Agricultura de Precisão</span>
+                    <h3>Kit Monitor de Plantio e Processamento</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Tela Touch Screen de alta visibilidade[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Módulo de processamento central[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Chicote elétrico robusto incluso[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 2: Sensor de Pressão -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/541892c8-272f-498a-85d9-70e45131f0c8.jpg_8ea37762_2K.jpg" alt="Sensor de Pressão">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Sensores de Pressão</span>
+                    <h3>Transmissor de Pressão Hidráulica</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Corpo reforçado em Aço Inox[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Conector angular DIN[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Resistente à vibração extrema do campo[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 3: Sensor Indutivo M18 -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/8e9dbb87-535f-40cc-a320-b2dc143abc53.jpg_5e4ef84a_2K.jpg" alt="Sensor Indutivo M18">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Sensores Indutivos</span>
+                    <h3>Sensor Indutivo M18 (Ponta Verde)</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Corpo roscado metálico[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Conector Superseal automotivo[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Ideal para contagem de sementes e rotação[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 4: Sensor Capacitivo/Ultrassônico -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/40f5da6a-3f87-4d1c-bad4-c1b3a5dc0722.jpg_67dd5c6a_2K.jpg" alt="Sensor de Nível">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Sensores de Nível</span>
+                    <h3>Sensor de Nível Capacitivo M30</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Corpo plástico reforçado de grande diâmetro[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Perfeito para nível de reservatórios[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Cabo espesso de alta durabilidade[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 5: Sensor Haste Limit Switch -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/cc715f5b-ed79-49cf-819f-0e0d618b94e1.jpg_c07ec6ca_2K.jpg" alt="Sensor Fim de Curso">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Sensores de Posição</span>
+                    <h3>Sensor de Posição com Haste (Fim de Curso)</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Haste direcional flexível[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Invólucro retangular blindado padrão industrial[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Monitoramento preciso de posicionamento[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 6: Módulo Fieldway de Controle -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/54534546-966c-49c6-8577-4e15b7982e93.jpg_6e36bbc6_2K.jpg" alt="Módulo Fieldway">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Telemetria & Controle</span>
+                    <h3>Módulo de Processamento Fieldway</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Fabricação original Fieldway[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Caixa selada com saídas duplas[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Controle rápido de dados em implementos[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 7: Módulo e Chicote Integrado -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/9ce0474f-7e14-4e17-af2a-ed9b5b596fbe.jpg_b1474654_2K.jpg" alt="Chicote e Módulo">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Conectividade</span>
+                    <h3>Conjunto de Módulo com Chicote</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Módulo de interface de dados[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Chicote elétrico multiplo com conectores isolados[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Instalação Plug and Play[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+            <!-- Produto 8: Sensor de Rotação Liso -->
+            <div class="produto-card">
+                <div class="produto-img">
+                    <img src="Images/Produtos/8a998c0a-19bf-4091-b283-3779e642c046.jpg_068a9464_2K.jpg" alt="Sensor Cilíndrico">
+                </div>
+                <div class="produto-info">
+                    <span class="tag-categoria">Sensores Cilíndricos</span>
+                    <h3>Sensor de Velocidade Liso</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check-circle"></i> Corpo metálico liso de alta precisão[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Chicote extensor emborrachado preto[cite: 13]</li>
+                        <li><i class="fas fa-check-circle"></i> Leitura de engrenagens e eixos[cite: 13]</li>
+                    </ul>
+                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MARCAS COMPATÍVEIS -->
     <section class="marcas reveal" id="marcas">
         <div class="section-header">
             <h2>Marcas Atendidas</h2>
@@ -635,7 +912,6 @@
             <p style="max-width: 600px; margin: 0 auto; color: #E0E0E0;">Especializada em fornecimento de sensores originais para máquinas e implementos agrícolas.</p>
 
             <div class="social-links">
-                <!-- Alterado o link do Instagram e Insta para links reais se houver, ou hashtags por enquanto -->
                 <a href="https://wa.me/5554991739188" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -643,21 +919,20 @@
 
             <p style="font-size: 0.9rem; color: #8c98a4; margin-top: 1.5rem;">&copy; 2026 FIELDWAY. Todos os direitos reservados.</p>
 
-            <!-- Créditos do Desenvolvedor (Mantive o link original de J. Caetano) -->
             <div class="developer-credits">
                 Desenvolvido por <a href="https://wa.me/5554991488595" target="_blank" rel="noopener noreferrer">J. Caetano</a>
             </div>
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE WHATSAPP (Link atualizado para o número de Vendas/Especialista) -->
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
     <a href="https://wa.me/5554991739188" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale com um especialista">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- SCRIPTS -->
     <script>
-        // 1. Menu Mobile Toggle - Corrigido para pegar a altura dinâmica do Header
+        // 1. Menu Mobile Toggle
         const headerEl = document.getElementById('header');
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
@@ -715,21 +990,18 @@
 
             sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
-                // Reduzi a margem de 250 para 300 para o gatilho ser mais rápido
                 if (pageYOffset >= sectionTop - 300) {
                     current = section.getAttribute("id");
                 }
             });
 
-            // CORREÇÃO: Verifica se o usuário chegou no final absoluto da página
+            // Verifica se chegou no final absoluto da página (para selecionar o Contato)
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
                 current = "contato";
             }
 
-            // Aplica a classe ativa na linha verde correta
             navLi.forEach((a) => {
                 a.classList.remove("active");
-                // Verifica se current não está vazio para evitar erros
                 if (current && a.getAttribute("href").includes(current)) {
                     a.classList.add("active");
                 }
