@@ -3,1010 +3,1304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIELDWAY</title>
+    <title>FieldWay</title>
 
-    <!-- Fontes e Ícones -->
+    <meta name="description" content="Sensores indutivos, circuitos de monitoramento e módulos eletrônicos para Kuhn, Horsch, Semeato e Stara. Catálogo com referência cruzada da montadora e orçamento direto pelo WhatsApp.">
+    <meta name="theme-color" content="#2A2D34">
+    <meta property="og:title" content="FieldWay | Precisão que guia o campo">
+    <meta property="og:description" content="Sensores e eletrônica para implementos agrícolas, com a mesma referência da montadora.">
+    <meta property="og:image" content="Images/web/sistema-cpa.jpg">
+    <link rel="icon" href="Images/web/icon-180.png" type="image/png">
+    <link rel="apple-touch-icon" href="Images/web/icon-180.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="Images/icon.png" type="image/png">
 
     <style>
-        /* === VARIÁVEIS DA MARCA === */
         :root {
-            --cor-primaria: #419D47; /* Verde FIELDWAY */
-            --cor-primaria-hover: #35823a;
-            --cor-escura: #2A2D34; /* Cinza Chumbo FIELDWAY */
-            --cor-escura-alt: #1F2126;
-            --cor-clara: #F4F6F8;
-            --cor-branca: #FFFFFF;
-            --cor-texto: #4A4A4A;
-            --transicao: all 0.3s ease;
+            --verde: #419D47;
+            --verde-600: #35823A;
+            --verde-claro: #6CC072;
+            --grafite: #2A2D34;
+            --grafite-900: #1B1D22;
+            --grafite-700: #3A3E46;
+            --papel: #EEF0EC;
+            --estudio: #F6F7F4;
+            --branco: #FFFFFF;
+            --texto: #2A2D34;
+            --texto-2: #5C626B;
+            --linha: rgba(42, 45, 52, 0.14);
+            --linha-clara: rgba(255, 255, 255, 0.16);
+            --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+            --corpo: 'Barlow', 'Segoe UI', sans-serif;
+            --gutter: clamp(20px, 5vw, 72px);
+            --max: 1320px;
+            --header: 84px;
+            --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
         }
 
-        /* === RESET E BASE === */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: var(--header); }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--cor-texto);
-            background-color: var(--cor-clara);
+            font-family: var(--corpo);
+            font-size: 17px;
             line-height: 1.6;
+            color: var(--texto);
+            background: var(--branco);
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--cor-escura);
+        img { display: block; max-width: 100%; }
+        button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
+        a { color: inherit; }
+
+        :focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+        .skip {
+            position: absolute; left: 12px; top: -60px; z-index: 100;
+            background: var(--verde); color: #fff; padding: 10px 16px; text-decoration: none;
         }
+        .skip:focus { top: 12px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-        /* === CABEÇALHO E NAVEGAÇÃO === */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--cor-branca);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: var(--transicao);
-        }
+        h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.02; letter-spacing: -0.005em; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        h2 { font-size: clamp(2.3rem, 4.6vw, 4.1rem); }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+        .lead { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--texto-2); max-width: 46ch; }
 
-            .logo img {
-                height: clamp(45px, 5vw, 65px);
-                width: auto;
-                display: block;
-                transition: transform 0.3s ease;
-            }
+        .meta { font-size: 0.9rem; font-weight: 600; color: var(--verde-600); }
 
-            .logo:hover img {
-                transform: scale(1.05);
-            }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-            .nav-links a {
-                text-decoration: none;
-                color: var(--cor-escura);
-                font-weight: 600;
-                font-size: 0.95rem;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                transition: var(--transicao);
-                position: relative;
-            }
-
-                .nav-links a::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -5px;
-                    left: 0;
-                    width: 0;
-                    height: 2px;
-                    background-color: var(--cor-primaria);
-                    transition: var(--transicao);
-                }
-
-                .nav-links a:hover::after,
-                .nav-links a.active::after {
-                    width: 100%;
-                }
-
-                .nav-links a:hover,
-                .nav-links a.active {
-                    color: var(--cor-primaria);
-                }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--cor-escura);
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        /* === SEÇÃO HERO === */
-        .hero {
-            height: 100vh;
-            min-height: 600px;
-            background: linear-gradient(to right, rgba(42, 45, 52, 0.9) 0%, rgba(42, 45, 52, 0.6) 100%), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-            margin-top: 70px;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .hero-text {
-            max-width: 650px;
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero h1 {
-            color: var(--cor-branca);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-            .hero h1 span {
-                color: var(--cor-primaria);
-            }
-
-        .hero p {
-            color: #E0E0E0;
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            margin-bottom: 2.5rem;
-        }
-
+        /* === BOTÕES === */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 1rem 2rem;
-            background-color: var(--cor-primaria);
-            color: var(--cor-branca);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transicao);
-            border: 2px solid var(--cor-primaria);
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            height: 52px; padding: 0 26px;
+            font-family: var(--corpo); font-weight: 600; font-size: 1rem;
+            text-decoration: none; border-radius: 3px;
+            transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+            white-space: nowrap;
         }
+        .btn-primario { background: var(--verde); color: #fff; }
+        .btn-primario:hover { background: var(--verde-600); }
+        .btn-contorno { border: 1px solid currentColor; }
+        .btn-contorno:hover { background: #fff; color: var(--grafite); border-color: #fff; }
+        .btn-escuro { background: var(--grafite); color: #fff; }
+        .btn-escuro:hover { background: var(--grafite-900); }
+        .btn .fa-whatsapp { font-size: 1.2rem; }
 
-            .btn:hover {
-                background-color: transparent;
-                color: var(--cor-primaria);
-            }
-
-        /* === DIFERENCIAIS (FEATURES) === */
-        .features {
-            padding: 5rem 2rem;
-            background-color: var(--cor-branca);
-        }
-
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            padding: 2.5rem;
-            background: var(--cor-clara);
-            border-radius: 8px;
-            border-bottom: 4px solid var(--cor-primaria);
-            transition: var(--transicao);
-            text-align: center;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--cor-primaria);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* === SEÇÃO PRODUTOS (CATÁLOGO) === */
-        .produtos {
-            padding: 5rem 2rem;
-            background-color: var(--cor-clara);
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
-            .section-header h2 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .section-header p {
-                color: #6c757d;
-                max-width: 600px;
-                margin: 0 auto;
-                font-size: 1.1rem;
-            }
-
-        .produtos-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .produto-card {
-            background-color: var(--cor-branca);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transicao);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #eaeaea;
-        }
-
-            .produto-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-                border-color: var(--cor-primaria);
-            }
-
-        .produto-img {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background-color: #F8F9FA;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-            .produto-img img {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-                transition: transform 0.5s ease;
-                mix-blend-mode: multiply; /* Remove o fundo branco de algumas imagens JPG */
-            }
-
-        .produto-card:hover .produto-img img {
-            transform: scale(1.08);
-        }
-
-        .produto-info {
-            padding: 1.8rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .tag-categoria {
-            display: inline-block;
-            background-color: rgba(65, 157, 71, 0.1);
-            color: var(--cor-primaria);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-            width: fit-content;
-        }
-
-        .produto-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--cor-escura);
-            line-height: 1.3;
-        }
-
-        .specs-list {
-            list-style: none;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-            .specs-list li {
-                font-size: 0.9rem;
-                color: #666;
-                margin-bottom: 0.5rem;
-                display: flex;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .specs-list i {
-                color: var(--cor-primaria);
-                font-size: 0.8rem;
-                margin-top: 4px;
-            }
-
-        .btn-comprar {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            background-color: var(--cor-escura);
-            color: var(--cor-branca);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transicao);
-            border: 1px solid var(--cor-escura);
-        }
-
-            .btn-comprar i {
-                margin-right: 8px;
-            }
-
-            .btn-comprar:hover {
-                background-color: var(--cor-primaria);
-                border-color: var(--cor-primaria);
-            }
-
-        /* === SEÇÃO DE MARCAS === */
-        .marcas {
-            padding: 5rem 2rem;
-            background-color: var(--cor-escura);
-            color: var(--cor-branca);
-            text-align: center;
-        }
-
-            .marcas .section-header h2 {
-                color: var(--cor-branca);
-            }
-
-        .marcas-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-        }
-
-        .marca-item {
-            background-color: var(--cor-escura-alt);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: var(--transicao);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-            .marca-item:hover {
-                transform: translateY(-8px);
-                border-color: var(--cor-primaria);
-                box-shadow: 0 12px 25px rgba(65, 157, 71, 0.15);
-            }
-
-        .marca-img-wrapper {
-            background-color: #FFFFFF;
-            height: 140px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-            .marca-img-wrapper img {
-                max-height: 100%;
-                max-width: 100%;
-                object-fit: contain;
-                transition: transform 0.4s ease;
-            }
-
-        .marca-item:hover .marca-img-wrapper img {
-            transform: scale(1.1);
-        }
-
-        .marca-info {
-            padding: 1.5rem;
-            background-color: var(--cor-escura-alt);
-        }
-
-            .marca-info h3 {
-                color: var(--cor-branca);
-                font-size: 1.4rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .marca-info p {
-                color: var(--cor-primaria);
-                font-size: 0.9rem;
-                font-weight: 600;
-            }
-
-        /* === FOOTER === */
-        footer {
-            background-color: #1a1c20;
+        /* === CABEÇALHO === */
+        .site-header {
+            position: fixed; inset: 0 0 auto; z-index: 50;
             color: #fff;
-            padding: 4rem 2rem 3rem 2rem;
-            text-align: center;
+            transition: background-color 0.35s, box-shadow 0.35s, color 0.35s;
+        }
+        .site-header .bar { height: var(--header); display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+        .marca { position: relative; display: block; width: 188px; height: 46px; flex-shrink: 0; }
+        .marca img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: left center; transition: opacity 0.35s; }
+        .marca .logo-escuro { opacity: 0; }
+
+        .site-header.is-solid { background: rgba(255, 255, 255, 0.97); color: var(--grafite); box-shadow: 0 1px 0 var(--linha); backdrop-filter: blur(12px); }
+        .site-header.is-solid .logo-claro { opacity: 0; }
+        .site-header.is-solid .logo-escuro { opacity: 1; }
+
+        .nav { display: flex; align-items: center; gap: 34px; }
+        .nav ul { display: flex; gap: 30px; list-style: none; }
+        .nav ul a { text-decoration: none; font-weight: 500; font-size: 0.98rem; position: relative; padding: 6px 0; opacity: 0.86; transition: opacity 0.2s; }
+        .nav ul a:hover, .nav ul a.is-active { opacity: 1; }
+        .nav ul a::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+            background: var(--verde); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease);
+        }
+        .nav ul a.is-active::after, .nav ul a:hover::after { transform: scaleX(1); }
+        .nav .btn { height: 44px; padding: 0 20px; font-size: 0.95rem; }
+
+        .menu-btn { display: none; width: 44px; height: 44px; position: relative; }
+        .menu-btn span { position: absolute; left: 10px; right: 10px; height: 2px; background: currentColor; transition: transform 0.3s, opacity 0.3s; }
+        .menu-btn span:nth-child(1) { top: 15px; }
+        .menu-btn span:nth-child(2) { top: 21px; }
+        .menu-btn span:nth-child(3) { top: 27px; }
+        .menu-aberto .menu-btn span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .menu-aberto .menu-btn span:nth-child(2) { opacity: 0; }
+        .menu-aberto .menu-btn span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        /* === HERO === */
+        .hero {
+            position: relative; min-height: 100vh; min-height: 100svh;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            color: #fff; background: var(--grafite-900); overflow: hidden; isolation: isolate;
+        }
+        .hero-media { position: absolute; inset: 0; z-index: -3; }
+        .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; transform: scale(1.12); transition: transform 3.2s var(--ease); }
+        .is-carregado .hero-media img { transform: scale(1); }
+        .hero-sombra {
+            position: absolute; inset: 0; z-index: -2;
+            background:
+                linear-gradient(90deg, rgba(27, 29, 34, 0.94) 0%, rgba(27, 29, 34, 0.78) 38%, rgba(27, 29, 34, 0.2) 100%),
+                linear-gradient(0deg, rgba(27, 29, 34, 0.96) 0%, rgba(27, 29, 34, 0) 50%);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
+        .hero-sulcos { position: absolute; right: -2vw; bottom: 0; z-index: -1; width: min(64vw, 1040px); pointer-events: none; }
+        .hero-sulcos svg { width: 100%; height: auto; display: block; }
+        .hero-sulcos path { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 1.6s var(--ease); }
+        .is-carregado .hero-sulcos path { transform: scaleY(1); }
+        .is-carregado .hero-sulcos path:nth-child(2) { transition-delay: 0.12s; }
+        .is-carregado .hero-sulcos path:nth-child(3) { transition-delay: 0.24s; }
+        .is-carregado .hero-sulcos path:nth-child(4) { transition-delay: 0.36s; }
+
+        .hero > .wrap { width: 100%; }
+        .hero-conteudo { padding-top: calc(var(--header) + 72px); padding-bottom: clamp(40px, 7vh, 80px); }
+        .hero h1 { font-size: clamp(3.6rem, 9vw, 8.6rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.015em; margin-bottom: 28px; }
+        .hero h1 .linha { display: block; overflow: hidden; padding-bottom: 0.04em; }
+        .hero h1 .linha span { display: block; transform: translateY(105%); transition: transform 1.1s var(--ease); }
+        .is-carregado .hero h1 .linha span { transform: none; }
+        .is-carregado .hero h1 .linha:nth-child(2) span { transition-delay: 0.12s; }
+        .hero .lead { color: rgba(255, 255, 255, 0.78); margin-bottom: 36px; }
+        .hero-acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+        .hero .lead, .hero-acoes { opacity: 0; transform: translateY(16px); transition: opacity 0.9s 0.45s, transform 0.9s 0.45s var(--ease); }
+        .is-carregado .hero .lead, .is-carregado .hero-acoes { opacity: 1; transform: none; }
+
+        .hero-dados { border-top: 1px solid var(--linha-clara); display: grid; grid-template-columns: repeat(4, 1fr); }
+        .hero-dados div { padding: 24px 24px 30px 0; }
+        .hero-dados div + div { padding-left: 24px; border-left: 1px solid var(--linha-clara); }
+        .hero-dados strong { display: block; font-family: var(--display); font-weight: 600; font-size: clamp(2rem, 3.2vw, 2.9rem); line-height: 1; margin-bottom: 8px; }
+        .hero-dados span { font-size: 0.92rem; color: rgba(255, 255, 255, 0.66); }
+
+        /* === DESTAQUES (ROLAGEM GUIADA) === */
+        .destaques { background: var(--papel); padding: clamp(88px, 12vw, 160px) 0 clamp(60px, 8vw, 120px); }
+        .secao-topo { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px 80px; align-items: end; margin-bottom: clamp(48px, 6vw, 88px); }
+
+        .vitrine { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: clamp(32px, 5vw, 96px); align-items: start; }
+        .palco {
+            position: sticky; top: calc(var(--header) + 24px);
+            height: calc(100vh - var(--header) - 48px); min-height: 460px; max-height: 820px;
+            background: var(--estudio); border-radius: 4px; overflow: hidden;
+        }
+        .palco-ref {
+            position: absolute; left: 24px; right: 24px; bottom: -0.12em;
+            font-family: var(--display); font-weight: 700; font-size: clamp(4.5rem, 10vw, 9.5rem); line-height: 1;
+            color: transparent; -webkit-text-stroke: 1px rgba(42, 45, 52, 0.13);
+            white-space: nowrap; overflow: hidden; transition: opacity 0.4s;
+        }
+        .palco-foto { position: absolute; inset: 9% 7% 15%; background: var(--estudio); opacity: 0; transform: scale(1.035); transition: opacity 0.7s, transform 1s var(--ease); }
+        .palco-foto img, .passo-foto img, .gaveta-foto img {
+            -webkit-mask-image: radial-gradient(ellipse 72% 72% at 50% 50%, #000 78%, transparent 100%);
+            mask-image: radial-gradient(ellipse 72% 72% at 50% 50%, #000 78%, transparent 100%);
+        }
+        .palco-foto img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        .palco-foto.is-ativo { opacity: 1; transform: none; }
+        .palco-topo { position: absolute; top: 22px; left: 24px; right: 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; z-index: 2; }
+        .palco-marca { font-weight: 600; font-size: 0.95rem; }
+        .palco-progresso { display: flex; gap: 6px; }
+        .palco-progresso i { width: 26px; height: 3px; background: rgba(42, 45, 52, 0.15); transition: background-color 0.3s; }
+        .palco-progresso i.is-ativo { background: var(--verde); }
+
+        .passo { min-height: 76vh; display: flex; flex-direction: column; justify-content: center; padding: 48px 0; opacity: 0.32; transition: opacity 0.5s; }
+        .passo.is-ativo { opacity: 1; }
+        .passo h3 { font-size: clamp(2rem, 3.2vw, 2.9rem); margin: 10px 0 16px; }
+        .passo p { color: var(--texto-2); max-width: 44ch; margin-bottom: 28px; }
+        .passo-foto { display: none; }
+
+        .ficha { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--linha); margin-bottom: 30px; }
+        .ficha div { padding: 12px 0; border-bottom: 1px solid var(--linha); }
+        .ficha div:nth-child(odd) { padding-right: 16px; }
+        .ficha dt { font-size: 0.82rem; color: var(--texto-2); }
+        .ficha dd { font-weight: 600; }
+
+        .link-seta { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; text-decoration: none; color: var(--grafite); border-bottom: 2px solid var(--verde); padding-bottom: 4px; width: fit-content; transition: gap 0.25s; }
+        .link-seta:hover { gap: 14px; }
+
+        /* === SISTEMA COMPLETO === */
+        .sistema { background: var(--grafite-900); color: #fff; padding: clamp(88px, 12vw, 160px) 0; }
+        .sistema-grade { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 110px); align-items: center; }
+        .sistema .lead { color: rgba(255, 255, 255, 0.7); margin: 22px 0 36px; }
+        .sistema .meta { color: var(--verde-claro); }
+
+        .componentes { list-style: none; border-top: 1px solid var(--linha-clara); margin-bottom: 40px; }
+        .componentes li { border-bottom: 1px solid var(--linha-clara); }
+        .componentes button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 15px 0; text-align: left; color: rgba(255, 255, 255, 0.78); transition: color 0.2s, padding 0.3s var(--ease); }
+        .componentes button::after { content: ''; width: 8px; height: 8px; border-radius: 50%; border: 1px solid currentColor; flex-shrink: 0; transition: background-color 0.2s, border-color 0.2s; }
+        .componentes button:hover, .componentes button.is-ativo { color: #fff; padding-left: 10px; }
+        .componentes button.is-ativo::after { background: var(--verde); border-color: var(--verde); }
+
+        .kit { position: relative; aspect-ratio: 1; background: #E9EAE6; border-radius: 4px; overflow: hidden; }
+        .kit img { width: 100%; height: 100%; object-fit: cover; }
+        .ponto {
+            position: absolute; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%;
+            background: var(--verde); color: #fff; display: grid; place-items: center;
+            box-shadow: 0 0 0 6px rgba(65, 157, 71, 0.28), 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s var(--ease), background-color 0.2s;
+        }
+        .ponto::before, .ponto::after { content: ''; position: absolute; width: 12px; height: 2px; background: currentColor; transition: transform 0.3s var(--ease); }
+        .ponto::after { transform: rotate(90deg); }
+        .ponto.is-ativo { background: var(--grafite); transform: scale(1.12); }
+        .ponto.is-ativo::after { transform: rotate(0deg); }
+        .ponto-rotulo {
+            position: absolute; left: 50%; bottom: calc(100% + 14px); transform: translate(-50%, 6px);
+            background: var(--grafite-900); color: #fff; font-size: 0.88rem; font-weight: 500; padding: 8px 12px; border-radius: 3px;
+            white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s var(--ease);
+        }
+        .ponto:hover .ponto-rotulo, .ponto.is-ativo .ponto-rotulo, .ponto:focus-visible .ponto-rotulo { opacity: 1; transform: translate(-50%, 0); }
+        .ponto.rotulo-baixo .ponto-rotulo { bottom: auto; top: calc(100% + 14px); }
+        .ponto.ancora-dir .ponto-rotulo { left: auto; right: -8px; transform: translateY(6px); }
+        .ponto.ancora-esq .ponto-rotulo { left: -8px; transform: translateY(6px); }
+        .ponto.ancora-dir:hover .ponto-rotulo, .ponto.ancora-dir.is-ativo .ponto-rotulo, .ponto.ancora-dir:focus-visible .ponto-rotulo,
+        .ponto.ancora-esq:hover .ponto-rotulo, .ponto.ancora-esq.is-ativo .ponto-rotulo, .ponto.ancora-esq:focus-visible .ponto-rotulo { transform: none; }
+
+        .linha-cpa { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin-top: 8px; }
+        .linha-cpa div { padding: 10px 0; border-bottom: 1px solid var(--linha-clara); font-size: 0.93rem; color: rgba(255, 255, 255, 0.72); }
+        .linha-cpa b { color: #fff; font-weight: 600; margin-right: 8px; font-variant-numeric: tabular-nums; }
+        .sistema .link-seta { color: #fff; margin-top: 32px; }
+
+        /* === CATÁLOGO === */
+        .catalogo { padding: clamp(88px, 12vw, 160px) 0; }
+        .catalogo .secao-topo { margin-bottom: 40px; }
+
+        .ferramentas { display: flex; flex-direction: column; gap: 18px; margin-bottom: 28px; }
+        .busca { position: relative; max-width: 620px; }
+        .busca svg { position: absolute; left: 18px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); color: var(--texto-2); pointer-events: none; }
+        .busca input {
+            width: 100%; height: 58px; padding: 0 20px 0 52px;
+            font: inherit; font-size: 1.05rem; color: var(--texto);
+            border: 1px solid var(--linha); border-radius: 3px; background: var(--estudio);
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .busca input:focus { outline: none; border-color: var(--verde); background: #fff; }
+        .filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+        .filtro {
+            height: 40px; padding: 0 16px; border: 1px solid var(--linha); border-radius: 3px;
+            font-size: 0.95rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;
+            transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+        }
+        .filtro small { font-size: 0.8rem; color: var(--texto-2); font-variant-numeric: tabular-nums; }
+        .filtro:hover { border-color: var(--grafite); }
+        .filtro[aria-pressed="true"] { background: var(--grafite); border-color: var(--grafite); color: #fff; }
+        .filtro[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.65); }
+
+        .contagem { font-size: 0.95rem; color: var(--texto-2); margin-bottom: 10px; }
+        .contagem b { color: var(--texto); }
+
+        .tabela { width: 100%; border-collapse: collapse; }
+        .tabela thead th { text-align: left; font-size: 0.82rem; font-weight: 600; color: var(--texto-2); padding: 12px 16px 12px 0; border-bottom: 1px solid var(--grafite); }
+        .tabela tbody tr { border-bottom: 1px solid var(--linha); cursor: pointer; transition: background-color 0.2s; }
+        .tabela tbody tr:hover { background: var(--estudio); }
+        .tabela td { padding: 14px 16px 14px 0; vertical-align: middle; }
+        .tabela td:last-child { padding-right: 0; text-align: right; }
+        .tabela .num { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+        .tabela .num.vazio { color: var(--texto-2); font-weight: 400; }
+        .peca { display: flex; align-items: center; gap: 18px; }
+        .miniatura { width: 68px; height: 68px; flex-shrink: 0; background: var(--estudio); border-radius: 3px; display: grid; place-items: center; overflow: hidden; }
+        .miniatura img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        .miniatura svg { width: 34px; height: 34px; color: #A5AAA2; }
+        .peca strong { display: block; font-weight: 600; line-height: 1.3; }
+        .peca span { display: block; font-size: 0.88rem; color: var(--texto-2); line-height: 1.4; margin-top: 3px; }
+        .tag-linha { font-size: 0.86rem; white-space: nowrap; }
+        .orcar {
+            display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px;
+            border: 1px solid var(--linha); border-radius: 3px; font-size: 0.9rem; font-weight: 600; text-decoration: none;
+            transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+        }
+        .orcar:hover { background: var(--verde); border-color: var(--verde); color: #fff; }
+        .sem-resultado td { padding: 56px 0; text-align: left !important; cursor: default; }
+        .sem-resultado:hover { background: none !important; }
+        .sem-resultado p { color: var(--texto-2); margin: 6px 0 18px; }
+
+        /* === GAVETA DE DETALHES === */
+        .gaveta-fundo { position: fixed; inset: 0; z-index: 80; background: rgba(27, 29, 34, 0.55); opacity: 0; visibility: hidden; transition: opacity 0.35s, visibility 0.35s; }
+        .gaveta {
+            position: fixed; top: 0; right: 0; bottom: 0; z-index: 90; width: min(540px, 100%);
+            background: #fff; display: flex; flex-direction: column; overflow-y: auto;
+            transform: translateX(100%); transition: transform 0.5s var(--ease); visibility: hidden;
+        }
+        .gaveta-aberta .gaveta-fundo { opacity: 1; visibility: visible; }
+        .gaveta-aberta .gaveta { transform: none; visibility: visible; }
+        .gaveta-foto { position: relative; aspect-ratio: 4 / 3; background: var(--estudio); display: grid; place-items: center; flex-shrink: 0; }
+        .gaveta-foto img { width: 86%; height: 86%; object-fit: contain; mix-blend-mode: multiply; }
+        .gaveta-foto svg { width: 110px; height: 110px; color: #B4B9B1; }
+        .gaveta-fechar { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+        .gaveta-fechar svg { width: 18px; height: 18px; }
+        .gaveta-corpo { padding: 32px clamp(24px, 4vw, 40px) 40px; display: flex; flex-direction: column; gap: 18px; }
+        .gaveta-corpo h3 { font-size: 2.2rem; }
+        .gaveta .ficha { margin-bottom: 0; }
+        .gaveta-rotulo { display: block; font-size: 0.82rem; color: var(--texto-2); margin-bottom: 8px; }
+        .especs { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+        .especs li { padding: 6px 12px; background: var(--papel); border-radius: 3px; font-weight: 600; font-size: 0.93rem; }
+        .gaveta-acoes { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+        .btn-copiar { border: 1px solid var(--linha); color: var(--grafite); }
+        .btn-copiar:hover { border-color: var(--grafite); }
+        .gaveta-nota { font-size: 0.88rem; color: var(--texto-2); }
+
+        /* === CLIENTES === */
+        .clientes { background: var(--papel); padding: clamp(88px, 12vw, 160px) 0; }
+        .clientes-grade { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(32px, 5vw, 96px); align-items: stretch; }
+        .clientes-lista { list-style: none; border-top: 1px solid var(--linha); align-self: center; }
+        .clientes-lista li { border-bottom: 1px solid var(--linha); }
+        .clientes-lista button {
+            position: relative; width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+            padding: 18px 0 20px; text-align: left; color: rgba(42, 45, 52, 0.38); transition: color 0.35s;
+        }
+        .clientes-lista button:hover, .clientes-lista button.is-ativo { color: var(--texto); }
+        .clientes-lista button::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+            background: var(--verde); transform: scaleX(0); transform-origin: left;
+        }
+        .clientes-lista button.is-ativo::after { transform: scaleX(1); }
+        .em-vista .clientes-lista button.is-ativo::after { animation: cliente-tempo 6s linear forwards; }
+        .clientes-grade:hover .clientes-lista button.is-ativo::after,
+        .clientes-grade:focus-within .clientes-lista button.is-ativo::after { animation-play-state: paused; }
+        @keyframes cliente-tempo { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .cliente-nome { font-family: var(--display); font-weight: 600; font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1; transition: transform 0.5s var(--ease); }
+        .clientes-lista button.is-ativo .cliente-nome { transform: translateX(14px); }
+        .cliente-seg { font-size: 0.92rem; text-align: right; }
+
+        .cliente-palco { position: relative; min-height: 520px; background: #fff; border-radius: 4px; overflow: hidden; }
+        .cliente-cena {
+            position: absolute; inset: 0; display: flex; flex-direction: column; padding: clamp(28px, 4vw, 48px);
+            opacity: 0; visibility: hidden; transition: opacity 0.6s, visibility 0.6s;
+        }
+        .cliente-cena.is-ativo { opacity: 1; visibility: visible; }
+        .cliente-logo { flex: 1; display: grid; place-items: center; position: relative; z-index: 1; }
+        .cliente-logo img {
+            max-width: min(68%, 380px); max-height: 170px; object-fit: contain; mix-blend-mode: multiply;
+            transform: scale(0.94); transition: transform 1.1s var(--ease);
+        }
+        .cliente-cena.is-ativo .cliente-logo img { transform: none; }
+        .cliente-eco {
+            position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+            font-family: var(--display); font-weight: 700; font-size: clamp(7rem, 17vw, 15rem); line-height: 1; text-align: center;
+            color: transparent; -webkit-text-stroke: 1px rgba(42, 45, 52, 0.07); white-space: nowrap; pointer-events: none;
+        }
+        .cliente-dados { position: relative; z-index: 1; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; border-top: 1px solid var(--linha); padding-top: 22px; }
+        .cliente-dados dt { font-size: 0.82rem; color: var(--texto-2); margin-bottom: 8px; }
+        .cliente-dados dd { font-weight: 600; }
+        .cliente-itens { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+        .cliente-itens li { padding: 5px 11px; background: var(--papel); border-radius: 3px; font-size: 0.9rem; font-weight: 500; }
+
+        /* === CONTATO === */
+        .contato { position: relative; background: var(--verde-600); color: #fff; padding: clamp(88px, 12vw, 150px) 0; overflow: hidden; isolation: isolate; }
+        .contato-sulcos { position: absolute; left: -6vw; bottom: 0; width: min(70vw, 1000px); z-index: -1; opacity: 0.22; pointer-events: none; }
+        .contato-grade { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px clamp(40px, 6vw, 110px); align-items: start; }
+        .contato h2 { font-size: clamp(2.6rem, 5.4vw, 4.8rem); }
+        .contato .lead { color: rgba(255, 255, 255, 0.86); margin-top: 22px; }
+        .contato-direto { list-style: none; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.3); }
+        .contato-direto li { border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+        .contato-direto a { display: flex; align-items: center; gap: 14px; padding: 16px 0; text-decoration: none; font-weight: 500; }
+        .contato-direto i { width: 20px; text-align: center; font-size: 1.15rem; opacity: 0.85; }
+        .contato-direto span { display: block; font-size: 0.82rem; opacity: 0.75; font-weight: 400; }
+
+        .formulario { background: #fff; color: var(--texto); border-radius: 4px; padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+        .formulario h3 { grid-column: 1 / -1; font-size: 1.9rem; }
+        .campo { display: flex; flex-direction: column; gap: 6px; }
+        .campo.inteiro, .canal, .formulario .btn, .form-nota, .form-ok { grid-column: 1 / -1; }
+        .campo label, .canal legend { font-size: 0.9rem; font-weight: 600; }
+        .campo label small { font-weight: 400; color: var(--texto-2); }
+        .campo input, .campo textarea {
+            width: 100%; height: 50px; padding: 0 14px; font: inherit; color: var(--texto);
+            border: 1px solid var(--linha); border-radius: 3px; background: var(--estudio); transition: border-color 0.2s, background-color 0.2s;
+        }
+        .campo textarea { height: auto; min-height: 120px; padding: 12px 14px; resize: vertical; }
+        .campo input:focus, .campo textarea:focus { outline: none; border-color: var(--verde); background: #fff; }
+        .campo.com-erro input, .campo.com-erro textarea { border-color: #B03A2E; }
+        .campo-erro { font-size: 0.84rem; color: #B03A2E; display: none; }
+        .campo.com-erro .campo-erro { display: block; }
+
+        .canal { border: 0; }
+        .canal legend { margin-bottom: 8px; }
+        .canal-opcoes { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .canal input { position: absolute; opacity: 0; pointer-events: none; }
+        .canal label {
+            display: flex; align-items: center; gap: 12px; height: 58px; padding: 0 16px; cursor: pointer;
+            border: 1px solid var(--linha); border-radius: 3px; font-weight: 600; transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+        }
+        .canal label i { font-size: 1.25rem; color: var(--verde-600); transition: color 0.2s; }
+        .canal label:hover { border-color: var(--grafite); }
+        .canal input:checked + label { background: var(--grafite); border-color: var(--grafite); color: #fff; }
+        .canal input:checked + label i { color: var(--verde-claro); }
+        .canal input:focus-visible + label { outline: 2px solid var(--verde); outline-offset: 2px; }
+        .formulario .btn { height: 56px; }
+        .form-nota { font-size: 0.86rem; color: var(--texto-2); }
+        .form-ok { display: none; padding: 14px 16px; background: rgba(65, 157, 71, 0.1); border-left: 3px solid var(--verde); font-size: 0.95rem; }
+        .form-ok.is-visivel { display: block; }
+
+        /* === RODAPÉ === */
+        .rodape { background: var(--grafite-900); color: rgba(255, 255, 255, 0.72); padding: 72px 0 32px; font-size: 0.95rem; }
+        .rodape-grade { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 56px; border-bottom: 1px solid var(--linha-clara); }
+        .rodape-marca img { width: 200px; margin-bottom: 18px; }
+        .rodape-marca p { max-width: 34ch; }
+        .rodape h4 { font-family: var(--corpo); font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 14px; }
+        .rodape ul { list-style: none; display: grid; gap: 8px; }
+        .rodape a { text-decoration: none; transition: color 0.2s; }
+        .rodape a:hover { color: #fff; }
+        .redes { display: flex; gap: 18px; font-size: 1.3rem; margin-top: 16px; }
+        .rodape-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 28px; font-size: 0.88rem; }
+        .rodape-base a { color: var(--verde-claro); font-weight: 600; }
+
+        .whats-flutuante {
+            position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 58px; height: 58px; border-radius: 50%;
+            background: #25D366; color: #fff; display: grid; place-items: center; font-size: 30px; text-decoration: none;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22); transition: transform 0.3s var(--ease), opacity 0.3s;
+        }
+        .whats-flutuante:hover { transform: scale(1.06); }
+        .gaveta-aberta .whats-flutuante { opacity: 0; pointer-events: none; }
+
+        .aviso {
+            position: fixed; left: 50%; bottom: 28px; z-index: 120; transform: translate(-50%, 20px);
+            background: var(--grafite-900); color: #fff; padding: 12px 20px; border-radius: 3px; font-size: 0.95rem;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s var(--ease);
+        }
+        .aviso.is-visivel { opacity: 1; transform: translate(-50%, 0); }
+
+        /* === RESPONSIVO === */
+        @media (max-width: 1080px) {
+            .nav ul { gap: 22px; }
+            .rodape-grade { grid-template-columns: 1fr 1fr; }
         }
 
-        .footer-logo {
-            margin-bottom: 1rem;
-            display: inline-block;
-            background-color: rgba(255,255,255,0.05);
-            padding: 10px 20px;
-            border-radius: 12px;
+        @media (max-width: 900px) {
+            :root { --header: 72px; }
+            .menu-btn { display: block; }
+            .nav {
+                position: fixed; inset: 0; z-index: -1; background: var(--grafite-900); color: #fff;
+                flex-direction: column; align-items: stretch; justify-content: center; gap: 36px; padding: 0 var(--gutter);
+                opacity: 0; visibility: hidden; transition: opacity 0.35s, visibility 0.35s;
+            }
+            .nav ul { flex-direction: column; gap: 0; }
+            .nav ul a { display: block; font-family: var(--display); font-size: 2.3rem; font-weight: 600; padding: 10px 0; opacity: 1; }
+            .nav ul a::after { display: none; }
+            .menu-aberto .nav { opacity: 1; visibility: visible; }
+            .menu-aberto.site-header { color: #fff; background: transparent; box-shadow: none; backdrop-filter: none; }
+            .menu-aberto .logo-claro { opacity: 1 !important; }
+            .menu-aberto .logo-escuro { opacity: 0 !important; }
+
+            .hero-dados { grid-template-columns: 1fr 1fr; }
+            .hero-dados div:nth-child(3) { border-left: 0; padding-left: 0; }
+            .hero-dados div:nth-child(n+3) { border-top: 1px solid var(--linha-clara); }
+
+            .secao-topo, .sistema-grade, .contato-grade { grid-template-columns: 1fr; }
+
+            .vitrine { display: block; }
+            .palco { display: none; }
+            .passo { min-height: 0; opacity: 1; padding: 0 0 56px; }
+            .passo-foto { display: block; aspect-ratio: 4 / 3; background: var(--estudio); border-radius: 4px; margin-bottom: 22px; }
+            .passo-foto img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; padding: 6%; }
+
+            .tabela thead { display: none; }
+            .tabela, .tabela tbody { display: block; }
+            .tabela tbody tr { display: grid; grid-template-columns: 1fr auto; gap: 10px 14px; padding: 16px 0; }
+            .tabela td { padding: 0; }
+            .tabela td:nth-child(1) { grid-column: 1 / -1; }
+            .tabela td.col-ref, .tabela td.col-linha { display: none; }
+            .tabela td.col-cod::before { content: 'Cód. '; font-weight: 400; color: var(--texto-2); }
+            .sem-resultado { display: block !important; }
+
+            .clientes-grade { grid-template-columns: 1fr; }
+            .cliente-palco { min-height: 420px; order: -1; }
         }
 
-            .footer-logo img {
-                height: clamp(60px, 8vw, 85px);
-                width: auto;
-                display: block;
-            }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 1.8rem;
-            margin-top: 1rem;
+        @media (max-width: 560px) {
+            body { font-size: 16px; }
+            .marca { width: 150px; }
+            .hero-acoes .btn { flex: 1 1 100%; }
+            .hero-dados div { padding: 18px 12px 20px 0; }
+            .hero-dados div + div { padding-left: 14px; }
+            .hero-dados div:nth-child(3) { padding-left: 0; }
+            .linha-cpa { grid-template-columns: 1fr; }
+            .cliente-palco { min-height: 400px; }
+            .cliente-dados { grid-template-columns: 1fr; gap: 14px; }
+            .cliente-seg { display: none; }
+            .formulario { grid-template-columns: 1fr; }
+            .rodape-grade { grid-template-columns: 1fr; }
+            .gaveta-acoes { grid-template-columns: 1fr; }
+            .whats-flutuante { right: 16px; bottom: 16px; width: 54px; height: 54px; }
         }
 
-            .social-links a {
-                color: #fff;
-                transition: var(--transicao);
-            }
-
-                .social-links a:hover {
-                    color: var(--cor-primaria);
-                    transform: translateY(-3px);
-                }
-
-        .developer-credits {
-            font-size: 0.85rem;
-            color: #8c98a4;
-            margin-top: 10px;
-        }
-
-            .developer-credits a {
-                color: var(--cor-primaria);
-                text-decoration: none;
-                font-weight: 700;
-                transition: var(--transicao);
-            }
-
-                .developer-credits a:hover {
-                    color: var(--cor-branca);
-                }
-
-        /* === BOTÃO WHATSAPP FLUTUANTE === */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            animation: pulse-whatsapp 2s infinite;
-        }
-
-            .whatsapp-float:hover {
-                background-color: #128C7E;
-                transform: scale(1.1);
-                color: #FFF;
-            }
-
-        @keyframes pulse-whatsapp {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* === ANIMAÇÕES === */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-            .reveal.active {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        /* === RESPONSIVIDADE === */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: var(--cor-branca);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 3rem;
-                transition: right 0.4s ease;
-            }
-
-                .nav-links.active {
-                    right: 0;
-                }
-
-                .nav-links a {
-                    font-size: 1.2rem;
-                    width: 100%;
-                    text-align: center;
-                    padding: 1rem;
-                }
-
-            .hero {
-                text-align: center;
-                background-position: 70% center;
-            }
-
-                .hero h1 {
-                    font-size: 2.2rem;
-                }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 30px;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; transition-delay: 0s !important; animation: none !important; }
         }
     </style>
 </head>
 <body>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="g-sensor" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="16" width="22" height="16" rx="1"/><path d="M10 16v16M14 16v16M18 16v16M22 16v16"/><path d="M28 20h6v8h-6"/><path d="M34 24c6 0 4 12 10 12"/></g></symbol>
+        <symbol id="g-circuito" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="10" width="36" height="26" rx="2"/><circle cx="16" cy="23" r="3"/><circle cx="32" cy="23" r="3"/><path d="M14 36v6M34 36v6"/></g></symbol>
+        <symbol id="g-tela" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="9" width="38" height="26" rx="2"/><rect x="10" y="14" width="28" height="16"/><path d="M18 41h12M24 35v6"/></g></symbol>
+        <symbol id="g-peca" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M24 6l15 9v18l-15 9-15-9V15z"/><circle cx="24" cy="24" r="6"/></g></symbol>
+    </svg>
 
     <!-- CABEÇALHO -->
-    <header id="header">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="Images/logo grande.png" alt="FIELDWAY Logo">
+    <header class="site-header" id="topo">
+        <div class="wrap bar">
+            <a href="#inicio" class="marca" aria-label="FieldWay, voltar ao início">
+                <img class="logo-claro" src="Images/web/logo-light.png" alt="FieldWay">
+                <img class="logo-escuro" src="Images/web/logo-dark.png" alt="" aria-hidden="true">
             </a>
-
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <ul>
+                    <li><a href="#destaques">Produtos</a></li>
+                    <li><a href="#sistema">Sistemas</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#clientes">Clientes</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <a class="btn btn-primario" href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Pedir orçamento</a>
+            </nav>
+            <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
             </button>
-
-            <!-- Menu com a aba Produtos adicionada -->
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#inicio" class="active">Início</a></li>
-                <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#marcas">Marcas</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Precisão que guia o <span>campo.</span></h1>
-                <p>Fornecimento especializado de sensores originais e tecnologia de ponta para máquinas e implementos agrícolas de alta performance.</p>
-                <a href="#contato" class="btn">
-                    Fale com um Especialista <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+    <main id="conteudo">
 
-    <!-- DIFERENCIAIS -->
-    <section class="features reveal" id="solucoes">
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-microchip feature-icon"></i>
-                <h3>Tecnologia Original</h3>
-                <p>Trabalhamos exclusivamente com sensores originais de fábrica, garantindo compatibilidade perfeita com seu maquinário.</p>
+        <!-- HERO -->
+        <section class="hero" id="inicio">
+            <div class="hero-media">
+                <img id="hero-img" src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=2200&auto=format&fit=crop" alt="" fetchpriority="high">
             </div>
-            <div class="feature-card">
-                <i class="fas fa-tractor feature-icon"></i>
-                <h3>Alta Performance</h3>
-                <p>Componentes desenvolvidos para suportar as condições mais extremas do campo, evitando paradas inesperadas.</p>
+            <div class="hero-sombra"></div>
+            <div class="hero-sulcos" aria-hidden="true">
+                <svg viewBox="0 0 1000 620">
+                    <defs>
+                        <linearGradient id="sulco" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#419D47" stop-opacity="0"/>
+                            <stop offset="0.6" stop-color="#419D47" stop-opacity="0.32"/>
+                            <stop offset="1" stop-color="#419D47" stop-opacity="0.62"/>
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#sulco)" d="M505 120 L520 120 L300 620 L130 620 Z"/>
+                    <path fill="url(#sulco)" d="M540 120 L556 120 L520 620 L360 620 Z"/>
+                    <path fill="url(#sulco)" d="M576 120 L592 120 L760 620 L600 620 Z"/>
+                    <path fill="url(#sulco)" d="M612 120 L628 120 L1000 620 L840 620 Z"/>
+                </svg>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-satellite-dish feature-icon"></i>
-                <h3>Precisão de Dados</h3>
-                <p>Sensores calibrados para agricultura de precisão, entregando dados exatos de plantio, taxa variável e colheita.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- PRODUTOS (NOVA SEÇÃO) -->
-    <section class="produtos reveal" id="produtos">
-        <div class="section-header">
-            <h2>Nossos Produtos</h2>
-            <p>Conheça nossa linha especializada de sensores e módulos para integração agrícola[cite: 13, 14].</p>
-        </div>
-
-        <div class="produtos-grid">
-
-            <!-- Produto 1: Kit Monitor -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/7e79bb2c-3bee-40bb-b6be-f3befac9bec2.jpg_ebb53aa0_2K.jpg" alt="Kit Monitor de Plantio">
+            <div class="wrap hero-conteudo">
+                <h1>
+                    <span class="linha"><span>Precisão que</span></span>
+                    <span class="linha"><span>guia o campo.</span></span>
+                </h1>
+                <p class="lead">Sensores, circuitos e módulos eletrônicos para plantadeiras, pulverizadores e autopropelidos, identificados pela mesma referência da montadora.</p>
+                <div class="hero-acoes">
+                    <a class="btn btn-primario" href="#catalogo">Consultar catálogo</a>
+                    <a class="btn btn-contorno" href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Falar com a equipe</a>
                 </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Agricultura de Precisão</span>
-                    <h3>Kit Monitor de Plantio e Processamento</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Tela Touch Screen de alta visibilidade[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Módulo de processamento central[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Chicote elétrico robusto incluso[cite: 13]</li>
+            </div>
+
+            <div class="wrap">
+                <div class="hero-dados">
+                    <div><strong id="dado-refs">55</strong><span>referências no catálogo</span></div>
+                    <div><strong>4</strong><span>montadoras com referência cruzada</span></div>
+                    <div><strong>M8–M18</strong><span>roscas de sensores indutivos</span></div>
+                    <div><strong>10–30 Vcc</strong><span>faixa de alimentação</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESTAQUES -->
+        <section class="destaques" id="destaques">
+            <div class="wrap">
+                <div class="secao-topo">
+                    <h2>Cada peça com a referência da montadora.</h2>
+                    <p class="lead">Fotos reais da linha FieldWay. Role a página para ver os dados técnicos de cada peça.</p>
+                </div>
+
+                <div class="vitrine">
+                    <div class="palco" aria-hidden="true">
+                        <div class="palco-topo">
+                            <span class="palco-marca" id="palco-marca">Kuhn</span>
+                            <div class="palco-progresso" id="palco-progresso"></div>
+                        </div>
+                        <div id="palco-fotos"></div>
+                        <div class="palco-ref" id="palco-ref">83234224</div>
+                    </div>
+                    <div class="passos" id="passos"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SISTEMA COMPLETO -->
+        <section class="sistema" id="sistema">
+            <div class="wrap sistema-grade">
+                <div>
+                    <span class="meta">Sistemas completos</span>
+                    <h2 style="margin-top:12px">Do sensor à tela da cabine.</h2>
+                    <p class="lead">Além das peças avulsas, fornecemos o conjunto: tela touch screen, central, chicotes e sensores. Toque nos pontos da foto para identificar cada componente.</p>
+
+                    <ul class="componentes" id="componentes"></ul>
+
+                    <span class="meta">Linha CPA para pulverizadores</span>
+                    <div class="linha-cpa">
+                        <div><b>4109</b>Tela touch colorida de 7"</div>
+                        <div><b>4108</b>Tela touch colorida de 4"</div>
+                        <div><b>3185</b>IHM LCD 16x2 com teclas</div>
+                        <div><b>4106</b>IHM CPA-01 de 1 tecla</div>
+                        <div><b>4111</b>CPU CPA-02 com controle de taxa</div>
+                        <div><b>4110</b>CPU CPA-01 aplicação e agitação</div>
+                    </div>
+                    <a href="#catalogo" class="link-seta" data-filtrar="pulverizadores">Ver a linha completa no catálogo <i class="fas fa-arrow-down"></i></a>
+                </div>
+
+                <figure class="kit" id="kit">
+                    <img src="Images/web/sistema-cpa.jpg" alt="Conjunto FieldWay com tela touch screen, central, caixa de ligação, chicotes e sensores" loading="lazy">
+                </figure>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section class="catalogo" id="catalogo">
+            <div class="wrap">
+                <div class="secao-topo">
+                    <h2>Catálogo técnico</h2>
+                    <p class="lead">Busque pelo código FieldWay, pela referência da montadora ou pela descrição. Toque em uma linha para ver a ficha completa.</p>
+                </div>
+
+                <div class="ferramentas">
+                    <label class="busca">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+                        <span class="sr-only">Buscar no catálogo</span>
+                        <input type="search" id="busca" placeholder="Ex.: 83234224, M18, Superseal, CMT-01" autocomplete="off">
+                    </label>
+                    <div class="filtros" id="filtros" role="group" aria-label="Filtrar por montadora ou linha"></div>
+                </div>
+
+                <p class="contagem" id="contagem" aria-live="polite"></p>
+
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th scope="col">Peça</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Ref. montadora</th>
+                            <th scope="col">Linha</th>
+                            <th scope="col"><span class="sr-only">Ação</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="linhas"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CLIENTES -->
+        <section class="clientes" id="clientes">
+            <div class="wrap">
+                <div class="secao-topo">
+                    <h2>Montadoras que já rodam com a FieldWay.</h2>
+                    <p class="lead">Fornecemos sensores e eletrônica para alguns dos maiores fabricantes de implementos do país. Escolha um nome para conhecer a parceria.</p>
+                </div>
+                <div class="clientes-grade" id="clientes-grade">
+                    <ul class="clientes-lista" id="clientes-lista" role="tablist" aria-label="Clientes"></ul>
+                    <div class="cliente-palco" id="cliente-palco"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section class="contato" id="contato">
+            <svg class="contato-sulcos" viewBox="0 0 1000 620" aria-hidden="true">
+                <path fill="#1B1D22" d="M505 120 L520 120 L300 620 L130 620 Z"/>
+                <path fill="#1B1D22" d="M540 120 L556 120 L520 620 L360 620 Z"/>
+                <path fill="#1B1D22" d="M576 120 L592 120 L760 620 L600 620 Z"/>
+                <path fill="#1B1D22" d="M612 120 L628 120 L1000 620 L840 620 Z"/>
+            </svg>
+            <div class="wrap contato-grade">
+                <div>
+                    <h2>Fale com a FieldWay.</h2>
+                    <p class="lead">Preencha o formulário e escolha como prefere enviar. Se tiver o código da peça, já informe para agilizar o orçamento.</p>
+                    <ul class="contato-direto">
+                        <li><a href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i><div><span>WhatsApp</span>(54) 99173-9188</div></a></li>
+                        <li><a href="mailto:contato@fieldway.com" id="link-email"><i class="far fa-envelope"></i><div><span>E-mail</span><b id="texto-email" style="font-weight:500">contato@fieldway.com</b></div></a></li>
                     </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
                 </div>
-            </div>
 
-            <!-- Produto 2: Sensor de Pressão -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/541892c8-272f-498a-85d9-70e45131f0c8.jpg_8ea37762_2K.jpg" alt="Sensor de Pressão">
+                <form class="formulario" id="formulario" novalidate>
+                    <h3>Envie sua mensagem</h3>
+                    <div class="campo">
+                        <label for="f-nome">Nome</label>
+                        <input id="f-nome" name="nome" type="text" autocomplete="name" required>
+                        <span class="campo-erro">Informe seu nome.</span>
+                    </div>
+                    <div class="campo">
+                        <label for="f-empresa">Empresa ou cidade <small>(opcional)</small></label>
+                        <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+                    </div>
+                    <div class="campo">
+                        <label for="f-telefone">Telefone <small>(opcional)</small></label>
+                        <input id="f-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(54) 99999-9999">
+                    </div>
+                    <div class="campo">
+                        <label for="f-email">E-mail <small>(opcional)</small></label>
+                        <input id="f-email" name="email" type="email" autocomplete="email">
+                        <span class="campo-erro">Confira o e-mail digitado.</span>
+                    </div>
+                    <div class="campo inteiro">
+                        <label for="f-codigo">Código da peça <small>(opcional)</small></label>
+                        <input id="f-codigo" name="codigo" type="text" placeholder="Código FieldWay ou referência da montadora">
+                    </div>
+                    <div class="campo inteiro">
+                        <label for="f-mensagem">Mensagem</label>
+                        <textarea id="f-mensagem" name="mensagem" required placeholder="Conte qual peça ou equipamento você precisa."></textarea>
+                        <span class="campo-erro">Escreva sua mensagem.</span>
+                    </div>
+                    <fieldset class="canal">
+                        <legend>Como prefere enviar?</legend>
+                        <div class="canal-opcoes">
+                            <input type="radio" name="canal" id="canal-whats" value="whatsapp" checked>
+                            <label for="canal-whats"><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                            <input type="radio" name="canal" id="canal-email" value="email">
+                            <label for="canal-email"><i class="far fa-envelope"></i> E-mail</label>
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-primario" id="form-enviar"><i class="fab fa-whatsapp"></i> <span>Enviar pelo WhatsApp</span></button>
+                    <p class="form-nota" id="form-nota">O WhatsApp abre com a sua mensagem pronta. É só tocar em enviar.</p>
+                    <p class="form-ok" id="form-ok" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="wrap">
+            <div class="rodape-grade">
+                <div class="rodape-marca">
+                    <img src="Images/web/logo-light.png" alt="FieldWay" loading="lazy">
+                    <p>Sensores e eletrônica para máquinas e implementos agrícolas.</p>
+                    <div class="redes">
+                        <a href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Sensores de Pressão</span>
-                    <h3>Transmissor de Pressão Hidráulica</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Corpo reforçado em Aço Inox[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Conector angular DIN[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Resistente à vibração extrema do campo[cite: 13]</li>
+                <div>
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#destaques">Produtos</a></li>
+                        <li><a href="#sistema">Sistemas</a></li>
+                        <li><a href="#catalogo">Catálogo técnico</a></li>
+                        <li><a href="#clientes">Clientes</a></li>
+                        <li><a href="#contato">Contato</a></li>
                     </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
                 </div>
-            </div>
-
-            <!-- Produto 3: Sensor Indutivo M18 -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/8e9dbb87-535f-40cc-a320-b2dc143abc53.jpg_5e4ef84a_2K.jpg" alt="Sensor Indutivo M18">
-                </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Sensores Indutivos</span>
-                    <h3>Sensor Indutivo M18 (Ponta Verde)</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Corpo roscado metálico[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Conector Superseal automotivo[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Ideal para contagem de sementes e rotação[cite: 13]</li>
+                <div>
+                    <h4>Linhas</h4>
+                    <ul>
+                        <li><a href="#catalogo" data-filtrar="pulverizadores">Pulverizadores</a></li>
+                        <li><a href="#catalogo" data-filtrar="autopropelidos">Autopropelidos</a></li>
+                        <li><a href="#catalogo" data-filtrar="climatizacao">Climatização de cabine</a></li>
                     </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
                 </div>
-            </div>
-
-            <!-- Produto 4: Sensor Capacitivo/Ultrassônico -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/40f5da6a-3f87-4d1c-bad4-c1b3a5dc0722.jpg_67dd5c6a_2K.jpg" alt="Sensor de Nível">
-                </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Sensores de Nível</span>
-                    <h3>Sensor de Nível Capacitivo M30</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Corpo plástico reforçado de grande diâmetro[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Perfeito para nível de reservatórios[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Cabo espesso de alta durabilidade[cite: 13]</li>
+                <div>
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer">WhatsApp (54) 99173-9188</a></li>
+                        <li><a href="mailto:contato@fieldway.com" class="link-email-rodape">contato@fieldway.com</a></li>
                     </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
                 </div>
             </div>
-
-            <!-- Produto 5: Sensor Haste Limit Switch -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/cc715f5b-ed79-49cf-819f-0e0d618b94e1.jpg_c07ec6ca_2K.jpg" alt="Sensor Fim de Curso">
-                </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Sensores de Posição</span>
-                    <h3>Sensor de Posição com Haste (Fim de Curso)</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Haste direcional flexível[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Invólucro retangular blindado padrão industrial[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Monitoramento preciso de posicionamento[cite: 13]</li>
-                    </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
-                </div>
-            </div>
-
-            <!-- Produto 6: Módulo Fieldway de Controle -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/54534546-966c-49c6-8577-4e15b7982e93.jpg_6e36bbc6_2K.jpg" alt="Módulo Fieldway">
-                </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Telemetria & Controle</span>
-                    <h3>Módulo de Processamento Fieldway</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Fabricação original Fieldway[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Caixa selada com saídas duplas[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Controle rápido de dados em implementos[cite: 13]</li>
-                    </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
-                </div>
-            </div>
-
-            <!-- Produto 7: Módulo e Chicote Integrado -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/9ce0474f-7e14-4e17-af2a-ed9b5b596fbe.jpg_b1474654_2K.jpg" alt="Chicote e Módulo">
-                </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Conectividade</span>
-                    <h3>Conjunto de Módulo com Chicote</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Módulo de interface de dados[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Chicote elétrico multiplo com conectores isolados[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Instalação Plug and Play[cite: 13]</li>
-                    </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
-                </div>
-            </div>
-
-            <!-- Produto 8: Sensor de Rotação Liso -->
-            <div class="produto-card">
-                <div class="produto-img">
-                    <img src="Images/Produtos/8a998c0a-19bf-4091-b283-3779e642c046.jpg_068a9464_2K.jpg" alt="Sensor Cilíndrico">
-                </div>
-                <div class="produto-info">
-                    <span class="tag-categoria">Sensores Cilíndricos</span>
-                    <h3>Sensor de Velocidade Liso</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check-circle"></i> Corpo metálico liso de alta precisão[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Chicote extensor emborrachado preto[cite: 13]</li>
-                        <li><i class="fas fa-check-circle"></i> Leitura de engrenagens e eixos[cite: 13]</li>
-                    </ul>
-                    <a href="https://wa.me/5554991739188" class="btn-comprar" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- MARCAS COMPATÍVEIS -->
-    <section class="marcas reveal" id="marcas">
-        <div class="section-header">
-            <h2>Marcas Atendidas</h2>
-            <p>Integração e reposição perfeita para as maiores montadoras de implementos do mercado agrícola.</p>
-        </div>
-
-        <div class="marcas-grid">
-            <div class="marca-item">
-                <div class="marca-img-wrapper">
-                    <img src="Images/Clientes/KUHN.png" alt="Logo KUHN">
-                </div>
-                <div class="marca-info">
-                    <h3>KUHN</h3>
-                    <p>Plantio e Pulverização</p>
-                </div>
-            </div>
-
-            <div class="marca-item">
-                <div class="marca-img-wrapper">
-                    <img src="Images/Clientes/Stara.png" alt="Logo Stara">
-                </div>
-                <div class="marca-info">
-                    <h3>Stara</h3>
-                    <p>Telemetria e Taxa Variável</p>
-                </div>
-            </div>
-
-            <div class="marca-item">
-                <div class="marca-img-wrapper">
-                    <img src="Images/Clientes/horsch.png" alt="Logo Horsch">
-                </div>
-                <div class="marca-info">
-                    <h3>Horsch</h3>
-                    <p>Alta Velocidade</p>
-                </div>
-            </div>
-
-            <div class="marca-item">
-                <div class="marca-img-wrapper">
-                    <img src="Images/Clientes/Semeato.jpg" alt="Logo Semeato">
-                </div>
-                <div class="marca-info">
-                    <h3>Semeato</h3>
-                    <p>Plantio Direto</p>
-                </div>
-            </div>
-
-            <div class="marca-item">
-                <div class="marca-img-wrapper">
-                    <img src="Images/Clientes/SaoJose.jpg" alt="Logo São José Industrial">
-                </div>
-                <div class="marca-info">
-                    <h3>São José</h3>
-                    <p>Implementos Robustos</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contato">
-        <div class="footer-content">
-            <a href="#" class="footer-logo">
-                <img src="Images/logo grande.png" alt="FIELDWAY Logo">
-            </a>
-            <p style="max-width: 600px; margin: 0 auto; color: #E0E0E0;">Especializada em fornecimento de sensores originais para máquinas e implementos agrícolas.</p>
-
-            <div class="social-links">
-                <a href="https://wa.me/5554991739188" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-
-            <p style="font-size: 0.9rem; color: #8c98a4; margin-top: 1.5rem;">&copy; 2026 FIELDWAY. Todos os direitos reservados.</p>
-
-            <div class="developer-credits">
-                Desenvolvido por <a href="https://wa.me/5554991488595" target="_blank" rel="noopener noreferrer">J. Caetano</a>
+            <div class="rodape-base">
+                <span>&copy; 2026 FieldWay. Todos os direitos reservados.</span>
+                <span>Desenvolvido por <a href="https://wa.me/5554991488595" target="_blank" rel="noopener noreferrer">J. Caetano</a></span>
             </div>
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE WHATSAPP -->
-    <a href="https://wa.me/5554991739188" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale com um especialista">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/5554991739188" class="whats-flutuante" target="_blank" rel="noopener noreferrer" aria-label="Falar com a FieldWay no WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- SCRIPTS -->
+    <!-- GAVETA DE DETALHES -->
+    <div class="gaveta-fundo" id="gaveta-fundo"></div>
+    <aside class="gaveta" id="gaveta" role="dialog" aria-modal="true" aria-labelledby="gaveta-titulo" aria-hidden="true">
+        <div class="gaveta-foto" id="gaveta-foto"></div>
+        <button class="gaveta-fechar" id="gaveta-fechar" aria-label="Fechar ficha">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <div class="gaveta-corpo">
+            <span class="meta" id="gaveta-linha"></span>
+            <h3 id="gaveta-titulo"></h3>
+            <dl class="ficha" id="gaveta-ficha"></dl>
+            <div id="gaveta-specs-bloco">
+                <span class="gaveta-rotulo">Especificações</span>
+                <ul class="especs" id="gaveta-specs"></ul>
+            </div>
+            <div class="gaveta-acoes">
+                <a class="btn btn-primario" id="gaveta-whats" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Pedir orçamento desta peça</a>
+                <button class="btn btn-copiar" id="gaveta-copiar" type="button">Copiar código</button>
+            </div>
+            <p class="gaveta-nota">A mensagem do WhatsApp já vai com o código e a referência preenchidos.</p>
+        </div>
+    </aside>
+
+    <div class="aviso" id="aviso" role="status"></div>
+
     <script>
-        // 1. Menu Mobile Toggle
-        const headerEl = document.getElementById('header');
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
-        const mobileIcon = mobileBtn.querySelector('i');
+        const WHATS = '5554991739188';
 
-        mobileBtn.addEventListener('click', () => {
-            const headerHeight = headerEl.offsetHeight;
-            navLinks.style.top = `${headerHeight}px`;
-            navLinks.style.height = `calc(100vh - ${headerHeight}px)`;
+        const LINHAS = {
+            kuhn: 'Kuhn',
+            horsch: 'Horsch',
+            semeato: 'Semeato',
+            stara: 'Stara',
+            pulverizadores: 'Pulverizadores',
+            autopropelidos: 'Autopropelidos',
+            climatizacao: 'Climatização de cabine'
+        };
 
-            navLinks.classList.toggle('active');
+        // Fonte: lista OEM/distribuição 02/03/23. "cod" é o código FieldWay, "ref" a referência da montadora.
+        const CATALOGO = [
+            { cod: '354', ref: '83234201', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-8N-DS2-CA', specs: ['M8', 'NPN', 'Alcance 2 mm', '10–30 Vcc'], foto: 'kuhn-m8-83234201' },
+            { cod: '355', ref: '83234213', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12N-DS4-CA', specs: ['M12', 'NPN', 'Alcance 4 mm', '10–30 Vcc'] },
+            { cod: '356', ref: '83234212', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12P-DS4-CA', specs: ['M12', 'PNP', 'Alcance 4 mm', '10–30 Vcc'] },
+            { cod: '544', ref: 'Y8000544', linhas: ['kuhn'], tipo: 'peca', nome: 'Dissipador de calor em alumínio', specs: ['Usinado, 5 aletas', 'Rosca M8 x 1,00 mm', '30 x 20 mm'] },
+            { cod: '654', ref: 'YX916029', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-18N-DS8-CA', specs: ['M18', 'NPN', 'Alcance 8 mm', '10–30 Vcc'] },
+            { cod: '939', ref: '83234223', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor de rotação M18', specs: ['NPN-NO', 'Alcance 5 mm', 'Faceado', 'Superseal macho', '10–30 Vcc'] },
+            { cod: '940', ref: '', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K2', specs: ['2 sensores', 'Temporização 20 s', '1 Superseal 3VM + 2 Superseal 3VF'] },
+            { cod: '941', ref: '', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K3', specs: ['3 sensores', 'Temporização 20 s', '1 Superseal 3VM + 3 Superseal 3VF'] },
+            { cod: '982', ref: 'Y59377390A', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo M18 não faceado', specs: ['NPN-NO', 'Alcance 5 mm', '10–30 Vcc'], foto: 'kuhn-m18-y59377390a' },
+            { cod: '1533', ref: '', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor de levante M18 PNP-NO', specs: ['Alcance 5 mm', 'Faceado', 'Conector Delphi 3VF', '10–30 Vcc'] },
+            { cod: '1687', ref: '5937390', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K2 com chicote', specs: ['2 sensores', 'Temporização 20 s', 'Chicote acoplado até a cabine'], foto: 'kuhn-cmt01-k2' },
+            { cod: '2221', ref: 'Y6531910', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12N-DS4-CA', specs: ['M12', 'NPN', 'Alcance 4 mm', '10–30 Vcc'] },
+            { cod: '2423', ref: '83234219', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor SIA-12N-DS4-CA Accura', specs: ['M12', 'NPN', 'Alcance 4 mm', 'Conector Deutsch DT04-6P'], foto: 'kuhn-m12-deutsch-83234219' },
+            { cod: '2940', ref: 'Y8377636', linhas: ['kuhn'], tipo: 'peca', nome: 'Chave de levante SLM-01/HH', specs: ['Fim de curso com haste', 'IP66', 'AC15 240 V 3 A'], foto: 'chave-levante-slm01' },
+            { cod: '2969', ref: '83234224', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo M18 PNP com Delphi', specs: ['PNP-NO', 'Alcance 8 mm', 'Não faceado', 'Delphi 3VF', 'Cabo 1 m'], foto: 'kuhn-m18-pnp-83234224' },
+            { cod: '3633', ref: '', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo M18 PNP, pinagem A+/B−/C', specs: ['PNP-NO', 'Alcance 8 mm', 'Não faceado', 'Delphi 3VF', 'Cabo 1 m'], foto: 'kuhn-m18-pnp-3633' },
+            { cod: '3705', ref: '', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor de levante M18 PNP-NC', specs: ['Alcance 5 mm', 'Faceado', 'Conector Delphi 3VF', '10–30 Vcc'] },
 
-            if (navLinks.classList.contains('active')) {
-                mobileIcon.classList.remove('fa-bars');
-                mobileIcon.classList.add('fa-times');
-            } else {
-                mobileIcon.classList.remove('fa-times');
-                mobileIcon.classList.add('fa-bars');
-            }
-        });
+            { cod: '3425', ref: '24052200', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor indutivo M12', specs: ['NPN/NO', 'Alcance 4 mm', 'Cabo 1000 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m12-24052200' },
+            { cod: '3426', ref: '00345413', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor indutivo M18', specs: ['NPN/NO', 'Alcance 8 mm', 'Cabo 1000 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m18-00345413' },
+            { cod: '3427', ref: '60018849', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor M18 de corpo plástico', specs: ['NPN/NF', 'Alcance 8 mm', 'Cabo 322 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m18-plastico-60018849' },
+            { cod: '3429', ref: '00346714', linhas: ['horsch'], tipo: 'peca', nome: 'Interruptor encapsulado liga/desliga', specs: ['50 x 65 x 37 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-interruptor-00346714' },
 
-        // 2. Fecha o menu ao clicar em um link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileIcon.classList.remove('fa-times');
-                mobileIcon.classList.add('fa-bars');
-            });
-        });
+            { cod: '1327', ref: '86951523', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12P-SD2-CO', specs: ['M12', 'PNP'] },
+            { cod: '1328', ref: '86951511', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CO', specs: ['M12', 'NPN'] },
+            { cod: '1329', ref: '86951516', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CA', specs: ['M12', 'NPN', 'Superseal 3VM'] },
+            { cod: '1330', ref: '86951512', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SMA-12NA-SD8-CA', specs: ['Superseal 3VM'] },
+            { cod: '646', ref: '76197101', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/2S', specs: ['2 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 5VM'] },
+            { cod: '652', ref: '76197102', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/3S', specs: ['3 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 5VM'] },
+            { cod: '653', ref: '76197106', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/4S', specs: ['4 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 6VM'] },
+            { cod: '679', ref: '76197401', linhas: ['semeato'], tipo: 'circuito', nome: 'Oscilador de sinal CORT-01/2S', specs: ['2 sensores', 'Temporização 3 s'] },
+            { cod: '2776', ref: '', linhas: ['semeato'], tipo: 'circuito', nome: 'CORT-02 tubular', specs: [] },
 
-        // 3. Animação de Scroll (Reveal)
-        const reveals = document.querySelectorAll('.reveal');
+            { cod: '324', ref: '73104992', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de rotação SRA-01/ST', specs: ['Suporte de fixação', 'Superseal'], foto: 'stara-sra01-73104992' },
+            { cod: '325', ref: '73104045', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de velocidade SVA-01/ST', specs: [] },
+            { cod: '3532', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor indutivo M12 faceado', specs: ['NPN NO/NC', 'Alcance 2 mm', 'Conector M12 4 pinos', 'IP-67'] },
 
-        function revealOnScroll() {
-            const windowHeight = window.innerHeight;
-            const elementVisible = 150;
+            { cod: '3097', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'circuito', nome: 'Placa PLCAB-01 IHM V1', specs: ['Ar-condicionado digital', 'Modbus', '12 Vcc'] },
+            { cod: '1836', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'circuito', nome: 'Placa PLCAB-01 CPU V2', specs: ['Ar-condicionado digital', 'Modbus', '12 Vcc'] },
+            { cod: '2431', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'peca', nome: 'Frontal em policarbonato PLCAB', specs: [] },
+            { cod: '4098', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'peca', nome: 'Moldura frontal PLCAB', specs: [] },
+            { cod: '4097', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'sensor', nome: 'Sensor de temperatura STA-35 para ar-condicionado', specs: ['Cabo 1,5 m'] },
 
-            reveals.forEach(reveal => {
-                const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveal.classList.add('active');
-                }
-            });
+            { cod: '3097', ref: '', linhas: ['autopropelidos'], tipo: 'circuito', nome: 'Circuito de barramento CAN/Rebolo V4', specs: [] },
+            { cod: '3378', ref: '', linhas: ['autopropelidos'], tipo: 'circuito', nome: 'Tração 4x2 ou 4x4 Hidra Reverse V1', specs: ['Gabinete plástico'] },
+            { cod: '93', ref: '', linhas: ['autopropelidos'], tipo: 'peca', nome: 'Teclado multifunções', specs: [] },
+            { cod: '93', ref: '', linhas: ['autopropelidos'], tipo: 'peca', nome: 'Joystick', specs: [] },
+
+            { cod: '4106', ref: '', linhas: ['pulverizadores'], tipo: 'tela', nome: 'IHM CPA-01 Standard', specs: ['1 tecla', 'LED de indicação'] },
+            { cod: '3185', ref: '', linhas: ['pulverizadores'], tipo: 'tela', nome: 'IHM CPA-02 LCD 16x2', specs: ['Backlight', 'Teclas', 'Modbus', '12 V'] },
+            { cod: '4108', ref: '', linhas: ['pulverizadores'], tipo: 'tela', nome: 'IHM CPA-02 touch screen colorida 4"', specs: ['Modbus', '12 V'] },
+            { cod: '4109', ref: '', linhas: ['pulverizadores'], tipo: 'tela', nome: 'IHM CPA touch screen colorida 7"', specs: ['Modbus', '12 V'] },
+            { cod: '4110', ref: '', linhas: ['pulverizadores'], tipo: 'circuito', nome: 'CPU CPA-01', specs: ['2 entradas', '2 saídas a relé: aplicação e agitação', '12 V'] },
+            { cod: '4111', ref: '', linhas: ['pulverizadores'], tipo: 'circuito', nome: 'CPU CPA-02 com controle de taxa', specs: ['4 saídas a relé', '1 saída variável', '4 entradas digitais', '12 V'] },
+            { cod: '4104', ref: '', linhas: ['pulverizadores'], tipo: 'sensor', nome: 'Sensor de temperatura STA-35', specs: ['Rosca M16 x 50 mm', 'Cabo 1,5 m'], foto: 'sensor-temperatura-sta35' },
+            { cod: '4105', ref: '', linhas: ['pulverizadores'], tipo: 'sensor', nome: 'Sensor de fluxo/vazão 10 bar', specs: ['12/24 Vcc', 'Rosca 1/4"', 'Saída analógica'], foto: 'transdutor-10bar-4105' },
+            { cod: '4112', ref: '', linhas: ['pulverizadores'], tipo: 'peca', nome: 'Suporte articulado para tela 4"', specs: [] },
+            { cod: '4113', ref: '', linhas: ['pulverizadores'], tipo: 'peca', nome: 'Suporte articulado para tela 7"', specs: [] },
+            { cod: '', ref: '', linhas: ['pulverizadores'], tipo: 'sensor', nome: 'Sensor de levante M12', specs: [] },
+            { cod: '', ref: '', linhas: ['pulverizadores'], tipo: 'sensor', nome: 'Sensor de levante M18', specs: [] },
+            { cod: '', ref: '', linhas: ['pulverizadores'], tipo: 'peca', nome: 'Sensor de levante helicoidal', specs: ['Fim de curso com haste'], foto: 'chave-levante-slm01' }
+        ];
+
+        const DESTAQUES = [
+            { foto: 'kuhn-m18-pnp-83234224', marca: 'Kuhn', ref: '83234224', cod: '2969', nome: 'Sensor indutivo M18 PNP',
+              texto: 'Detecta metal sem contato. Face não faceada para alcance de 8 mm e conector Delphi de 3 vias montado no cabo de 1 m.',
+              ficha: [['Rosca', 'M18'], ['Saída', 'PNP-NO'], ['Alcance', '8 mm'], ['Alimentação', '10–30 Vcc'], ['Conector', 'Delphi 3 vias'], ['Cabo', '1 m']] },
+            { foto: 'kuhn-cmt01-k2', marca: 'Kuhn', ref: '5937390', cod: '1687', nome: 'Monitor de turbinas CMT‑01/K2',
+              texto: 'Acompanha dois sensores e sinaliza cada turbina por LED. Vem com chicote trançado para levar o sinal até a cabine.',
+              ficha: [['Entradas', '2 sensores'], ['Temporização', '20 s'], ['Indicação', 'LED por turbina'], ['Ligação', 'Chicote até a cabine']] },
+            { foto: 'horsch-m18-plastico-60018849', marca: 'Horsch', ref: '60018849', cod: '3427', nome: 'Sensor M18 de corpo plástico',
+              texto: 'Versão normalmente fechada, com cabo curto de 322 mm terminado em Superseal de 3 vias.',
+              ficha: [['Rosca', 'M18'], ['Saída', 'NPN-NF'], ['Alcance', '8 mm'], ['Cabo', '322 mm'], ['Conector', 'Superseal 3 vias'], ['Proteção', 'IP-67']] },
+            { foto: 'horsch-interruptor-00346714', marca: 'Horsch', ref: '00346714', cod: '3429', nome: 'Interruptor encapsulado',
+              texto: 'Caixa selada com alavanca liga/desliga e saída em Superseal de 3 vias, pronta para o chicote do implemento.',
+              ficha: [['Dimensões', '50 x 65 x 37 mm'], ['Função', 'Liga/desliga'], ['Conector', 'Superseal 3 vias'], ['Proteção', 'IP-67']] },
+            { foto: 'transdutor-10bar-4105', marca: 'Pulverizadores', ref: '4105', cod: '4105', nome: 'Sensor de fluxo/vazão 10 bar',
+              texto: 'Saída analógica para o controle de aplicação, com rosca de 1/4" e conector angular.',
+              ficha: [['Faixa', '10 bar'], ['Alimentação', '12/24 Vcc'], ['Rosca', '1/4"'], ['Saída', 'Analógica']] },
+            { foto: 'chave-levante-slm01', marca: 'Kuhn', ref: 'Y8377636', cod: '2940', nome: 'Chave de levante SLM-01/HH',
+              texto: 'Fim de curso com haste para indicar quando o implemento está levantado.',
+              ficha: [['Tipo', 'Fim de curso com haste'], ['Proteção', 'IP66'], ['Contato', 'AC15 240 V 3 A'], ['Norma', 'IEC 60947-5-1']] }
+        ];
+
+        const PONTOS = [
+            { x: 51, y: 15, nome: 'Tela touch screen colorida' },
+            { x: 53, y: 42, nome: 'Central' },
+            { x: 14, y: 32, nome: 'Módulo eletrônico' },
+            { x: 89, y: 27, nome: 'Caixa de ligação com chicote' },
+            { x: 20, y: 64, nome: 'Sensor indutivo M18' },
+            { x: 86, y: 66, nome: 'Sensor de corpo plástico', baixo: true },
+            { x: 32, y: 86, nome: 'Chicote com conector Deutsch' }
+        ];
+
+        // Confirmar o e-mail oficial antes de publicar: ele recebe as mensagens do formulário.
+        const EMAIL = 'contato@fieldway.com';
+
+        const CLIENTES = [
+            { nome: 'Kuhn', logo: 'kuhn', segmento: 'Plantio e pulverização',
+              itens: ['Sensores indutivos M8 a M18', 'Monitores de turbina CMT-01', 'Chave de levante SLM-01/HH'] },
+            { nome: 'Stara', logo: 'stara', segmento: 'Telemetria e taxa variável',
+              itens: ['Sensor de rotação SRA-01/ST', 'Sensor de velocidade SVA-01/ST', 'Sensores M12 com conector M12'] },
+            { nome: 'Horsch', logo: 'horsch', segmento: 'Plantio em alta velocidade',
+              itens: ['Sensores M12 e M18 com Superseal', 'Interruptor encapsulado'] },
+            { nome: 'Semeato', logo: 'semeato', segmento: 'Plantio direto',
+              itens: ['Sensores M12', 'Circuitos de monitoramento CORT'] },
+            { nome: 'São José', logo: 'sao-jose', segmento: 'Implementos robustos',
+              itens: ['Sensores e eletrônica sob consulta'] }
+        ];
+
+        const $ = (s) => document.querySelector(s);
+        const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const normaliza = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+        const glifo = (tipo) => `<svg aria-hidden="true"><use href="#g-${tipo}"/></svg>`;
+        const linkWhats = (msg) => `https://wa.me/${WHATS}?text=${encodeURIComponent(msg)}`;
+        const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function mensagemPeca(p) {
+            const partes = [p.cod && `cód. FieldWay ${p.cod}`, p.ref && `ref. montadora ${p.ref}`].filter(Boolean).join(' / ');
+            return `Olá! Gostaria de um orçamento: ${p.nome}${partes ? ` (${partes})` : ''}.`;
         }
 
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Gatilho inicial
+        // ---------- Cabeçalho e menu ----------
+        const header = $('#topo');
+        const menuBtn = $('#menu-btn');
 
-        // 4. Script da Linha Verde Dinâmica (ScrollSpy) Corrigido
-        const sections = document.querySelectorAll("section, footer");
-        const navLi = document.querySelectorAll(".nav-links a");
+        function atualizaHeader() {
+            header.classList.toggle('is-solid', window.scrollY > 40);
+        }
+        window.addEventListener('scroll', atualizaHeader, { passive: true });
+        atualizaHeader();
 
-        window.addEventListener("scroll", () => {
-            let current = "";
+        function fechaMenu() {
+            header.classList.remove('menu-aberto');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Abrir menu');
+            document.body.style.overflow = '';
+        }
+        menuBtn.addEventListener('click', () => {
+            const abrir = !header.classList.contains('menu-aberto');
+            header.classList.toggle('menu-aberto', abrir);
+            menuBtn.setAttribute('aria-expanded', String(abrir));
+            menuBtn.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
+            document.body.style.overflow = abrir ? 'hidden' : '';
+        });
+        document.querySelectorAll('#nav a').forEach((a) => a.addEventListener('click', fechaMenu));
 
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 300) {
-                    current = section.getAttribute("id");
-                }
-            });
+        // ---------- Hero ----------
+        const heroImg = $('#hero-img');
+        const marcaCarregado = () => requestAnimationFrame(() => document.body.classList.add('is-carregado'));
+        if (heroImg.complete) marcaCarregado();
+        else { heroImg.addEventListener('load', marcaCarregado); heroImg.addEventListener('error', marcaCarregado); }
+        setTimeout(marcaCarregado, 1500);
+        $('#dado-refs').textContent = CATALOGO.length;
 
-            // Verifica se chegou no final absoluto da página (para selecionar o Contato)
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-                current = "contato";
+        // ---------- Destaques com rolagem guiada ----------
+        const palcoFotos = $('#palco-fotos');
+        const palcoRef = $('#palco-ref');
+        const palcoMarca = $('#palco-marca');
+        const progresso = $('#palco-progresso');
+        const passos = $('#passos');
+
+        DESTAQUES.forEach((d, i) => {
+            palcoFotos.insertAdjacentHTML('beforeend',
+                `<div class="palco-foto${i === 0 ? ' is-ativo' : ''}"><img src="Images/web/${d.foto}.jpg" alt="" ${i > 1 ? 'loading="lazy"' : ''}></div>`);
+            progresso.insertAdjacentHTML('beforeend', `<i class="${i === 0 ? 'is-ativo' : ''}"></i>`);
+            const ficha = d.ficha.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+            passos.insertAdjacentHTML('beforeend', `
+                <article class="passo${i === 0 ? ' is-ativo' : ''}" data-i="${i}">
+                    <div class="passo-foto"><img src="Images/web/${d.foto}.jpg" alt="${esc(d.nome)}" loading="lazy"></div>
+                    <span class="meta">${esc(d.marca)} · Ref. ${esc(d.ref)} · Cód. ${esc(d.cod)}</span>
+                    <h3>${esc(d.nome)}</h3>
+                    <p>${esc(d.texto)}</p>
+                    <dl class="ficha">${ficha}</dl>
+                    <a class="link-seta" href="${linkWhats(`Olá! Gostaria de um orçamento: ${d.nome} (cód. FieldWay ${d.cod} / ref. ${d.ref}).`)}" target="_blank" rel="noopener noreferrer">Pedir orçamento <i class="fas fa-arrow-right"></i></a>
+                </article>`);
+        });
+
+        let destaqueAtivo = 0;
+        function ativaDestaque(i) {
+            if (i === destaqueAtivo) return;
+            destaqueAtivo = i;
+            palcoFotos.querySelectorAll('.palco-foto').forEach((el, j) => el.classList.toggle('is-ativo', j === i));
+            progresso.querySelectorAll('i').forEach((el, j) => el.classList.toggle('is-ativo', j <= i));
+            passos.querySelectorAll('.passo').forEach((el, j) => el.classList.toggle('is-ativo', j === i));
+            palcoRef.textContent = DESTAQUES[i].ref;
+            palcoMarca.textContent = DESTAQUES[i].marca;
+        }
+        const obsPassos = new IntersectionObserver((entradas) => {
+            entradas.forEach((e) => { if (e.isIntersecting) ativaDestaque(Number(e.target.dataset.i)); });
+        }, { rootMargin: '-45% 0px -45% 0px' });
+        passos.querySelectorAll('.passo').forEach((el) => obsPassos.observe(el));
+
+        // ---------- Sistema: pontos na foto ----------
+        const kit = $('#kit');
+        const componentes = $('#componentes');
+        PONTOS.forEach((p, i) => {
+            kit.insertAdjacentHTML('beforeend',
+                `<button class="ponto${p.baixo ? ' rotulo-baixo' : ''}${p.x > 65 ? ' ancora-dir' : p.x < 35 ? ' ancora-esq' : ''}" style="left:${p.x}%;top:${p.y}%" data-p="${i}" aria-label="${esc(p.nome)}"><span class="ponto-rotulo">${esc(p.nome)}</span></button>`);
+            componentes.insertAdjacentHTML('beforeend', `<li><button type="button" data-p="${i}">${esc(p.nome)}</button></li>`);
+        });
+        function ativaPonto(i) {
+            document.querySelectorAll('[data-p]').forEach((el) => el.classList.toggle('is-ativo', el.dataset.p === String(i)));
+        }
+        document.querySelectorAll('[data-p]').forEach((el) => {
+            el.addEventListener('click', () => ativaPonto(el.classList.contains('is-ativo') ? -1 : el.dataset.p));
+            if (el.closest('#componentes')) el.addEventListener('mouseenter', () => ativaPonto(el.dataset.p));
+        });
+
+        // ---------- Catálogo ----------
+        const busca = $('#busca');
+        const filtros = $('#filtros');
+        const corpo = $('#linhas');
+        const contagem = $('#contagem');
+        let filtro = 'todos';
+
+        function contaLinha(id) { return CATALOGO.filter((p) => p.linhas.includes(id)).length; }
+
+        filtros.innerHTML = [['todos', 'Todas', CATALOGO.length], ...Object.entries(LINHAS).map(([id, nome]) => [id, nome, contaLinha(id)])]
+            .map(([id, nome, n]) => `<button type="button" class="filtro" data-f="${id}" aria-pressed="${id === filtro}">${esc(nome)} <small>${n}</small></button>`)
+            .join('');
+
+        function aplicaFiltro(id) {
+            filtro = id;
+            filtros.querySelectorAll('.filtro').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.f === id)));
+            renderiza();
+        }
+        filtros.addEventListener('click', (e) => {
+            const b = e.target.closest('.filtro');
+            if (b) aplicaFiltro(b.dataset.f);
+        });
+
+        function renderiza() {
+            const termo = normaliza(busca.value.trim());
+            const itens = CATALOGO
+                .map((p, i) => ({ p, i }))
+                .filter(({ p }) => filtro === 'todos' || p.linhas.includes(filtro))
+                .filter(({ p }) => !termo || normaliza([p.cod, p.ref, p.nome, p.specs.join(' '), p.linhas.map((l) => LINHAS[l]).join(' ')].join(' ')).includes(termo));
+
+            contagem.innerHTML = `<b>${itens.length}</b> de ${CATALOGO.length} peças`;
+
+            if (!itens.length) {
+                corpo.innerHTML = `<tr class="sem-resultado"><td colspan="5">
+                    <strong>Nenhuma peça encontrada para “${esc(busca.value.trim())}”.</strong>
+                    <p>Confira o código ou mande a referência para a nossa equipe, que fazemos a busca por você.</p>
+                    <a class="btn btn-primario" href="${linkWhats(`Olá! Procuro a peça: ${busca.value.trim()}`)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Perguntar no WhatsApp</a>
+                </td></tr>`;
+                return;
             }
 
-            navLi.forEach((a) => {
-                a.classList.remove("active");
-                if (current && a.getAttribute("href").includes(current)) {
-                    a.classList.add("active");
-                }
-            });
+            corpo.innerHTML = itens.map(({ p, i }) => `
+                <tr tabindex="0" data-i="${i}" aria-label="Ver ficha: ${esc(p.nome)}">
+                    <td>
+                        <div class="peca">
+                            <div class="miniatura">${p.foto ? `<img src="Images/web/${p.foto}-thumb.jpg" alt="" loading="lazy">` : glifo(p.tipo)}</div>
+                            <div><strong>${esc(p.nome)}</strong>${p.specs.length ? `<span>${esc(p.specs.join(' · '))}</span>` : ''}</div>
+                        </div>
+                    </td>
+                    <td class="num col-cod${p.cod ? '' : ' vazio'}">${p.cod ? esc(p.cod) : 'Sob consulta'}</td>
+                    <td class="num col-ref${p.ref ? '' : ' vazio'}">${p.ref ? esc(p.ref) : '—'}</td>
+                    <td class="tag-linha col-linha">${esc(LINHAS[p.linhas[0]])}</td>
+                    <td><a class="orcar" href="${linkWhats(mensagemPeca(p))}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Orçar</a></td>
+                </tr>`).join('');
+        }
+
+        busca.addEventListener('input', renderiza);
+        corpo.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;
+            const tr = e.target.closest('tr[data-i]');
+            if (tr) abreGaveta(Number(tr.dataset.i), tr);
         });
+        corpo.addEventListener('keydown', (e) => {
+            const tr = e.target.closest('tr[data-i]');
+            if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); abreGaveta(Number(tr.dataset.i), tr); }
+        });
+
+        document.querySelectorAll('[data-filtrar]').forEach((a) => a.addEventListener('click', () => aplicaFiltro(a.dataset.filtrar)));
+        renderiza();
+
+        // ---------- Gaveta de detalhes ----------
+        const gaveta = $('#gaveta');
+        let origemFoco = null;
+        let pecaAberta = null;
+
+        function abreGaveta(i, origem) {
+            const p = CATALOGO[i];
+            pecaAberta = p;
+            origemFoco = origem;
+            $('#gaveta-foto').innerHTML = p.foto ? `<img src="Images/web/${p.foto}.jpg" alt="${esc(p.nome)}">` : glifo(p.tipo);
+            $('#gaveta-linha').textContent = p.linhas.map((l) => LINHAS[l]).join(' · ');
+            $('#gaveta-titulo').textContent = p.nome;
+            const campos = [['Código FieldWay', p.cod || 'Sob consulta'], ['Ref. montadora', p.ref || '—']];
+            $('#gaveta-ficha').innerHTML = campos.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+            $('#gaveta-specs').innerHTML = p.specs.map((s) => `<li>${esc(s)}</li>`).join('');
+            $('#gaveta-specs-bloco').hidden = !p.specs.length;
+            $('#gaveta-whats').href = linkWhats(mensagemPeca(p));
+            $('#gaveta-copiar').hidden = !(p.cod || p.ref);
+            document.body.classList.add('gaveta-aberta');
+            gaveta.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => $('#gaveta-fechar').focus(), 50);
+        }
+        function fechaGaveta() {
+            if (!document.body.classList.contains('gaveta-aberta')) return;
+            document.body.classList.remove('gaveta-aberta');
+            gaveta.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (origemFoco) origemFoco.focus();
+        }
+        $('#gaveta-fechar').addEventListener('click', fechaGaveta);
+        $('#gaveta-fundo').addEventListener('click', fechaGaveta);
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            fechaGaveta();
+            if (header.classList.contains('menu-aberto')) fechaMenu();
+        });
+
+        const aviso = $('#aviso');
+        function mostraAviso(texto) {
+            aviso.textContent = texto;
+            aviso.classList.add('is-visivel');
+            clearTimeout(mostraAviso.t);
+            mostraAviso.t = setTimeout(() => aviso.classList.remove('is-visivel'), 2200);
+        }
+        $('#gaveta-copiar').addEventListener('click', async () => {
+            const texto = [pecaAberta.cod && `Cód. FieldWay ${pecaAberta.cod}`, pecaAberta.ref && `Ref. ${pecaAberta.ref}`].filter(Boolean).join(' / ');
+            try {
+                await navigator.clipboard.writeText(texto);
+                mostraAviso('Código copiado');
+            } catch {
+                mostraAviso(texto);
+            }
+        });
+
+        // ---------- Clientes ----------
+        const clientesLista = $('#clientes-lista');
+        const clientePalco = $('#cliente-palco');
+
+        CLIENTES.forEach((c, i) => {
+            clientesLista.insertAdjacentHTML('beforeend', `
+                <li role="presentation"><button type="button" role="tab" id="cliente-tab-${i}" aria-controls="cliente-${i}" aria-selected="${i === 0}" class="${i === 0 ? 'is-ativo' : ''}" data-c="${i}">
+                    <span class="cliente-nome">${esc(c.nome)}</span><span class="cliente-seg">${esc(c.segmento)}</span>
+                </button></li>`);
+            clientePalco.insertAdjacentHTML('beforeend', `
+                <div class="cliente-cena${i === 0 ? ' is-ativo' : ''}" id="cliente-${i}" role="tabpanel" aria-labelledby="cliente-tab-${i}">
+                    <span class="cliente-eco" aria-hidden="true">${esc(c.nome)}</span>
+                    <div class="cliente-logo"><img src="Images/web/marcas/${c.logo}.png" alt="Logo ${esc(c.nome)}" loading="lazy"></div>
+                    <dl class="cliente-dados">
+                        <div><dt>Segmento</dt><dd>${esc(c.segmento)}</dd></div>
+                        <div><dt>O que fornecemos</dt><dd><ul class="cliente-itens">${c.itens.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></dd></div>
+                    </dl>
+                </div>`);
+        });
+
+        function ativaCliente(i) {
+            clientesLista.querySelectorAll('button').forEach((b, j) => {
+                b.classList.toggle('is-ativo', j === i);
+                b.setAttribute('aria-selected', String(j === i));
+            });
+            clientePalco.querySelectorAll('.cliente-cena').forEach((c, j) => c.classList.toggle('is-ativo', j === i));
+        }
+        clientesLista.addEventListener('click', (e) => {
+            const b = e.target.closest('button');
+            if (b) ativaCliente(Number(b.dataset.c));
+        });
+        // A barra verde sob o nome ativo é o cronômetro: quando a animação termina, passa para o próximo.
+        clientesLista.addEventListener('animationend', (e) => {
+            const atual = Number(e.target.dataset.c);
+            ativaCliente((atual + 1) % CLIENTES.length);
+        });
+        new IntersectionObserver(([e]) => $('#clientes').classList.toggle('em-vista', e.isIntersecting), { threshold: 0.35 })
+            .observe($('#clientes-grade'));
+
+        // ---------- Formulário de contato ----------
+        const form = $('#formulario');
+        const botaoEnviar = $('#form-enviar');
+        const nota = $('#form-nota');
+        const ok = $('#form-ok');
+        document.querySelectorAll('#link-email, .link-email-rodape').forEach((a) => { a.href = `mailto:${EMAIL}`; });
+        $('#texto-email').textContent = EMAIL;
+        document.querySelector('.link-email-rodape').textContent = EMAIL;
+
+        function atualizaCanal() {
+            const porEmail = form.canal.value === 'email';
+            botaoEnviar.innerHTML = porEmail
+                ? '<i class="far fa-envelope"></i> <span>Enviar por e-mail</span>'
+                : '<i class="fab fa-whatsapp"></i> <span>Enviar pelo WhatsApp</span>';
+            nota.textContent = porEmail
+                ? 'Seu aplicativo de e-mail abre com a mensagem pronta. É só enviar.'
+                : 'O WhatsApp abre com a sua mensagem pronta. É só tocar em enviar.';
+            ok.classList.remove('is-visivel');
+        }
+        form.querySelectorAll('input[name="canal"]').forEach((r) => r.addEventListener('change', atualizaCanal));
+
+        function marcaErro(campo, temErro) {
+            campo.closest('.campo').classList.toggle('com-erro', temErro);
+            campo.setAttribute('aria-invalid', String(temErro));
+            return temErro;
+        }
+        form.querySelectorAll('.campo input, .campo textarea').forEach((c) => c.addEventListener('input', () => marcaErro(c, false)));
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const v = (n) => form[n].value.trim();
+            const erros = [
+                marcaErro(form.nome, !v('nome')),
+                marcaErro(form.email, Boolean(v('email')) && !form.email.checkValidity()),
+                marcaErro(form.mensagem, !v('mensagem'))
+            ];
+            if (erros.some(Boolean)) {
+                form.querySelector('[aria-invalid="true"]').focus();
+                return;
+            }
+
+            const extras = [
+                v('codigo') && `Código da peça: ${v('codigo')}`,
+                v('telefone') && `Telefone: ${v('telefone')}`,
+                v('email') && `E-mail: ${v('email')}`
+            ].filter(Boolean);
+            const texto = [
+                `Olá, FieldWay! Meu nome é ${v('nome')}${v('empresa') ? ` (${v('empresa')})` : ''}.`,
+                '',
+                v('mensagem'),
+                ...(extras.length ? ['', ...extras] : [])
+            ].join('\n');
+
+            if (form.canal.value === 'email') {
+                const assunto = `Contato pelo site: ${v('nome')}${v('codigo') ? ` (peça ${v('codigo')})` : ''}`;
+                window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(texto)}`;
+                ok.textContent = `Abrimos o seu aplicativo de e-mail com a mensagem pronta. Se ele não abriu, escreva para ${EMAIL}.`;
+            } else {
+                window.open(linkWhats(texto), '_blank', 'noopener');
+                ok.textContent = 'Abrimos o WhatsApp com a sua mensagem. Se ele não abriu, chame no (54) 99173-9188.';
+            }
+            ok.classList.add('is-visivel');
+        });
+
+        // ---------- Navegação ativa ----------
+        const navLinks = document.querySelectorAll('#nav ul a');
+        const obsSecoes = new IntersectionObserver((entradas) => {
+            entradas.forEach((e) => {
+                if (!e.isIntersecting) return;
+                navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === `#${e.target.id}`));
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+        document.querySelectorAll('main section[id]').forEach((s) => obsSecoes.observe(s));
     </script>
 </body>
 </html>
