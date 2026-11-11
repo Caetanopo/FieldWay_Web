@@ -111,15 +111,45 @@
         .site-header.is-solid .logo-escuro { opacity: 1; }
 
         .nav { display: flex; align-items: center; gap: 34px; }
-        .nav ul { display: flex; gap: 30px; list-style: none; }
-        .nav ul a { text-decoration: none; font-weight: 500; font-size: 0.98rem; position: relative; padding: 6px 0; opacity: 0.86; transition: opacity 0.2s; }
-        .nav ul a:hover, .nav ul a.is-active { opacity: 1; }
-        .nav ul a::after {
+        .nav ul { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav ul > li > a { text-decoration: none; font-weight: 500; font-size: 0.98rem; position: relative; padding: 6px 0; opacity: 0.86; transition: opacity 0.2s; }
+        .nav ul > li > a:hover, .nav ul > li > a.is-active { opacity: 1; }
+        .nav ul > li > a::after {
             content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
             background: var(--verde); transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease);
         }
-        .nav ul a.is-active::after, .nav ul a:hover::after { transform: scaleX(1); }
-        .nav .btn { height: 44px; padding: 0 20px; font-size: 0.95rem; }
+        .nav ul > li > a.is-active::after, .nav ul > li > a:hover::after { transform: scaleX(1); }
+
+
+        /* Menu suspenso do catálogo: consulta por cliente */
+        .tem-menu { position: relative; padding: 26px 0; margin: -26px 0; }
+        .tem-menu > a { display: inline; }
+        .tem-menu > a i { position: absolute; left: calc(100% + 6px); top: 50%; margin-top: -0.4em; font-size: 0.64rem; line-height: 1; transition: transform 0.3s var(--ease); }
+        .tem-menu:hover > a i, .tem-menu:focus-within > a i { transform: rotate(180deg); }
+        .submenu {
+            position: absolute; top: 100%; left: 50%; z-index: 60; width: 396px;
+            background: #fff; color: var(--grafite); border-radius: 4px; padding: 10px 10px 8px;
+            box-shadow: 0 24px 60px rgba(27, 29, 34, 0.24), 0 0 0 1px var(--linha);
+            opacity: 0; visibility: hidden; transform: translate(-50%, 8px);
+            transition: opacity 0.25s, transform 0.35s var(--ease), visibility 0.25s;
+        }
+        .submenu::before { content: ''; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; background: #fff; transform: rotate(45deg); box-shadow: -1px -1px 0 var(--linha); }
+        .tem-menu:hover .submenu, .tem-menu:focus-within .submenu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+        .tem-menu.recolhido .submenu { opacity: 0; visibility: hidden; transform: translate(-50%, 8px); }
+        .submenu-titulo { position: relative; padding: 6px 12px 10px; font-size: 0.8rem; font-weight: 600; color: var(--texto-2); letter-spacing: 0.01em; }
+        .submenu ul { display: block; list-style: none; }
+        .nav .submenu a { position: relative; display: flex; align-items: center; gap: 14px; padding: 8px 12px; border-radius: 3px; font-size: 1rem; opacity: 1; text-decoration: none; transition: background-color 0.2s; }
+        .nav .submenu a::after { display: none; }
+        .nav .submenu ul a:hover, .nav .submenu ul a:focus-visible { background: var(--estudio); }
+        .submenu-logo { width: 76px; height: 44px; flex-shrink: 0; display: grid; place-items: center; background: #fff; border: 1px solid var(--linha); border-radius: 3px; padding: 6px 8px; }
+        .submenu-logo img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        .submenu-nome { flex: 1; min-width: 0; line-height: 1.25; }
+        .submenu-nome b { display: block; font-weight: 600; }
+        .submenu-nome small { display: block; font-size: 0.82rem; color: var(--texto-2); }
+        .submenu-seta { font-size: 0.8rem; color: var(--verde-600); opacity: 0; transform: translateX(-6px); transition: opacity 0.2s, transform 0.3s var(--ease); }
+        .nav .submenu ul a:hover .submenu-seta, .nav .submenu ul a:focus-visible .submenu-seta { opacity: 1; transform: none; }
+        .nav .submenu .submenu-todos { margin-top: 6px; border-top: 1px solid var(--linha); border-radius: 0 0 3px 3px; padding: 12px; font-size: 0.92rem; font-weight: 600; justify-content: space-between; color: var(--verde-600); }
+        .nav .submenu .submenu-todos:hover, .nav .submenu .submenu-todos:focus-visible { background: var(--estudio); }
 
         .menu-btn { display: none; width: 44px; height: 44px; position: relative; }
         .menu-btn span { position: absolute; left: 10px; right: 10px; height: 2px; background: currentColor; transition: transform 0.3s, opacity 0.3s; }
@@ -216,48 +246,6 @@
         .link-seta { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; text-decoration: none; color: var(--grafite); border-bottom: 2px solid var(--verde); padding-bottom: 4px; width: fit-content; transition: gap 0.25s; }
         .link-seta:hover { gap: 14px; }
 
-        /* === SISTEMA COMPLETO === */
-        .sistema { background: var(--grafite-900); color: #fff; padding: clamp(88px, 12vw, 160px) 0; }
-        .sistema-grade { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 110px); align-items: center; }
-        .sistema .lead { color: rgba(255, 255, 255, 0.7); margin: 22px 0 36px; }
-        .sistema .meta { color: var(--verde-claro); }
-
-        .componentes { list-style: none; border-top: 1px solid var(--linha-clara); margin-bottom: 40px; }
-        .componentes li { border-bottom: 1px solid var(--linha-clara); }
-        .componentes button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 15px 0; text-align: left; color: rgba(255, 255, 255, 0.78); transition: color 0.2s, padding 0.3s var(--ease); }
-        .componentes button::after { content: ''; width: 8px; height: 8px; border-radius: 50%; border: 1px solid currentColor; flex-shrink: 0; transition: background-color 0.2s, border-color 0.2s; }
-        .componentes button:hover, .componentes button.is-ativo { color: #fff; padding-left: 10px; }
-        .componentes button.is-ativo::after { background: var(--verde); border-color: var(--verde); }
-
-        .kit { position: relative; aspect-ratio: 1; background: #E9EAE6; border-radius: 4px; overflow: hidden; }
-        .kit img { width: 100%; height: 100%; object-fit: cover; }
-        .ponto {
-            position: absolute; width: 36px; height: 36px; margin: -18px 0 0 -18px; border-radius: 50%;
-            background: var(--verde); color: #fff; display: grid; place-items: center;
-            box-shadow: 0 0 0 6px rgba(65, 157, 71, 0.28), 0 6px 18px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s var(--ease), background-color 0.2s;
-        }
-        .ponto::before, .ponto::after { content: ''; position: absolute; width: 12px; height: 2px; background: currentColor; transition: transform 0.3s var(--ease); }
-        .ponto::after { transform: rotate(90deg); }
-        .ponto.is-ativo { background: var(--grafite); transform: scale(1.12); }
-        .ponto.is-ativo::after { transform: rotate(0deg); }
-        .ponto-rotulo {
-            position: absolute; left: 50%; bottom: calc(100% + 14px); transform: translate(-50%, 6px);
-            background: var(--grafite-900); color: #fff; font-size: 0.88rem; font-weight: 500; padding: 8px 12px; border-radius: 3px;
-            white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s var(--ease);
-        }
-        .ponto:hover .ponto-rotulo, .ponto.is-ativo .ponto-rotulo, .ponto:focus-visible .ponto-rotulo { opacity: 1; transform: translate(-50%, 0); }
-        .ponto.rotulo-baixo .ponto-rotulo { bottom: auto; top: calc(100% + 14px); }
-        .ponto.ancora-dir .ponto-rotulo { left: auto; right: -8px; transform: translateY(6px); }
-        .ponto.ancora-esq .ponto-rotulo { left: -8px; transform: translateY(6px); }
-        .ponto.ancora-dir:hover .ponto-rotulo, .ponto.ancora-dir.is-ativo .ponto-rotulo, .ponto.ancora-dir:focus-visible .ponto-rotulo,
-        .ponto.ancora-esq:hover .ponto-rotulo, .ponto.ancora-esq.is-ativo .ponto-rotulo, .ponto.ancora-esq:focus-visible .ponto-rotulo { transform: none; }
-
-        .linha-cpa { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin-top: 8px; }
-        .linha-cpa div { padding: 10px 0; border-bottom: 1px solid var(--linha-clara); font-size: 0.93rem; color: rgba(255, 255, 255, 0.72); }
-        .linha-cpa b { color: #fff; font-weight: 600; margin-right: 8px; font-variant-numeric: tabular-nums; }
-        .sistema .link-seta { color: #fff; margin-top: 32px; }
-
         /* === CATÁLOGO === */
         .catalogo { padding: clamp(88px, 12vw, 160px) 0; }
         .catalogo .secao-topo { margin-bottom: 40px; }
@@ -282,6 +270,18 @@
         .filtro:hover { border-color: var(--grafite); }
         .filtro[aria-pressed="true"] { background: var(--grafite); border-color: var(--grafite); color: #fff; }
         .filtro[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.65); }
+
+        .cliente-faixa {
+            display: flex; align-items: center; gap: 22px; padding: 16px 20px; margin-bottom: 22px;
+            background: var(--estudio); border-left: 3px solid var(--verde); border-radius: 3px;
+        }
+        .cliente-faixa[hidden] { display: none; }
+        .cliente-faixa-logo { width: 120px; height: 62px; flex-shrink: 0; display: grid; place-items: center; background: #fff; border-radius: 3px; padding: 8px 12px; }
+        .cliente-faixa-logo img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        .cliente-faixa-texto { flex: 1; min-width: 0; }
+        .cliente-faixa-texto strong { display: block; font-family: var(--display); font-weight: 600; font-size: 1.7rem; line-height: 1.1; }
+        .cliente-faixa-texto span { font-size: 0.93rem; color: var(--texto-2); }
+        .cliente-faixa .btn-copiar { height: 42px; padding: 0 16px; font-size: 0.92rem; background: #fff; }
 
         .contagem { font-size: 0.95rem; color: var(--texto-2); margin-bottom: 10px; }
         .contagem b { color: var(--texto); }
@@ -379,6 +379,7 @@
         .cliente-dados { position: relative; z-index: 1; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; border-top: 1px solid var(--linha); padding-top: 22px; }
         .cliente-dados dt { font-size: 0.82rem; color: var(--texto-2); margin-bottom: 8px; }
         .cliente-dados dd { font-weight: 600; }
+        .cliente-link { position: relative; z-index: 1; margin-top: 22px; }
         .cliente-itens { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
         .cliente-itens li { padding: 5px 11px; background: var(--papel); border-radius: 3px; font-size: 0.9rem; font-weight: 500; }
 
@@ -471,8 +472,22 @@
                 opacity: 0; visibility: hidden; transition: opacity 0.35s, visibility 0.35s;
             }
             .nav ul { flex-direction: column; gap: 0; }
-            .nav ul a { display: block; font-family: var(--display); font-size: 2.3rem; font-weight: 600; padding: 10px 0; opacity: 1; }
-            .nav ul a::after { display: none; }
+            .nav ul > li > a { display: block; font-family: var(--display); font-size: 2.3rem; font-weight: 600; padding: 10px 0; opacity: 1; }
+            .nav ul > li > a::after { display: none; }
+            .tem-menu { padding: 0; margin: 0; }
+            .tem-menu > a i { display: none; }
+            .submenu, .tem-menu:hover .submenu, .tem-menu:focus-within .submenu, .tem-menu.recolhido .submenu {
+                position: static; width: auto; background: transparent; color: #fff; box-shadow: none; padding: 0 0 14px;
+                opacity: 1; visibility: visible; transform: none;
+            }
+            .submenu::before, .submenu-titulo, .submenu-logo, .submenu-seta, .nav .submenu .submenu-todos { display: none; }
+            .submenu ul { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
+            .nav .submenu ul a { padding: 7px 14px; border: 1px solid var(--linha-clara); border-radius: 3px; font-size: 1rem; }
+            .nav .submenu ul a:hover, .nav .submenu ul a:focus-visible { background: rgba(255, 255, 255, 0.1); }
+            .submenu-nome b { font-weight: 500; }
+            .submenu-nome small { display: none; }
+            .cliente-faixa { flex-wrap: wrap; gap: 14px 18px; }
+            .cliente-faixa-texto { flex-basis: calc(100% - 140px); }
             .menu-aberto .nav { opacity: 1; visibility: visible; }
             .menu-aberto.site-header { color: #fff; background: transparent; box-shadow: none; backdrop-filter: none; }
             .menu-aberto .logo-claro { opacity: 1 !important; }
@@ -482,7 +497,7 @@
             .hero-dados div:nth-child(3) { border-left: 0; padding-left: 0; }
             .hero-dados div:nth-child(n+3) { border-top: 1px solid var(--linha-clara); }
 
-            .secao-topo, .sistema-grade, .contato-grade { grid-template-columns: 1fr; }
+            .secao-topo, .contato-grade { grid-template-columns: 1fr; }
 
             .vitrine { display: block; }
             .palco { display: none; }
@@ -510,7 +525,6 @@
             .hero-dados div { padding: 18px 12px 20px 0; }
             .hero-dados div + div { padding-left: 14px; }
             .hero-dados div:nth-child(3) { padding-left: 0; }
-            .linha-cpa { grid-template-columns: 1fr; }
             .cliente-palco { min-height: 400px; }
             .cliente-dados { grid-template-columns: 1fr; gap: 14px; }
             .cliente-seg { display: none; }
@@ -546,12 +560,13 @@
             <nav class="nav" id="nav" aria-label="Principal">
                 <ul>
                     <li><a href="#destaques">Produtos</a></li>
-                    <li><a href="#sistema">Sistemas</a></li>
-                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li class="tem-menu" id="menu-catalogo">
+                        <a href="#catalogo" aria-haspopup="true">Catálogo <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                        <div class="submenu" id="submenu" role="group" aria-label="Catálogo por cliente"></div>
+                    </li>
                     <li><a href="#clientes">Clientes</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
-                <a class="btn btn-primario" href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Pedir orçamento</a>
             </nav>
             <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
                 <span></span><span></span><span></span>
@@ -627,34 +642,6 @@
             </div>
         </section>
 
-        <!-- SISTEMA COMPLETO -->
-        <section class="sistema" id="sistema">
-            <div class="wrap sistema-grade">
-                <div>
-                    <span class="meta">Sistemas completos</span>
-                    <h2 style="margin-top:12px">Do sensor à tela da cabine.</h2>
-                    <p class="lead">Além das peças avulsas, fornecemos o conjunto: tela touch screen, central, chicotes e sensores. Toque nos pontos da foto para identificar cada componente.</p>
-
-                    <ul class="componentes" id="componentes"></ul>
-
-                    <span class="meta">Linha CPA para pulverizadores</span>
-                    <div class="linha-cpa">
-                        <div><b>4109</b>Tela touch colorida de 7"</div>
-                        <div><b>4108</b>Tela touch colorida de 4"</div>
-                        <div><b>3185</b>IHM LCD 16x2 com teclas</div>
-                        <div><b>4106</b>IHM CPA-01 de 1 tecla</div>
-                        <div><b>4111</b>CPU CPA-02 com controle de taxa</div>
-                        <div><b>4110</b>CPU CPA-01 aplicação e agitação</div>
-                    </div>
-                    <a href="#catalogo" class="link-seta" data-filtrar="pulverizadores">Ver a linha completa no catálogo <i class="fas fa-arrow-down"></i></a>
-                </div>
-
-                <figure class="kit" id="kit">
-                    <img src="Images/web/sistema-cpa.jpg" alt="Conjunto FieldWay com tela touch screen, central, caixa de ligação, chicotes e sensores" loading="lazy">
-                </figure>
-            </div>
-        </section>
-
         <!-- CATÁLOGO -->
         <section class="catalogo" id="catalogo">
             <div class="wrap">
@@ -671,6 +658,8 @@
                     </label>
                     <div class="filtros" id="filtros" role="group" aria-label="Filtrar por montadora ou linha"></div>
                 </div>
+
+                <div class="cliente-faixa" id="cliente-faixa" hidden></div>
 
                 <p class="contagem" id="contagem" aria-live="polite"></p>
 
@@ -784,7 +773,6 @@
                     <h4>Navegação</h4>
                     <ul>
                         <li><a href="#destaques">Produtos</a></li>
-                        <li><a href="#sistema">Sistemas</a></li>
                         <li><a href="#catalogo">Catálogo técnico</a></li>
                         <li><a href="#clientes">Clientes</a></li>
                         <li><a href="#contato">Contato</a></li>
@@ -848,6 +836,7 @@
             horsch: 'Horsch',
             semeato: 'Semeato',
             stara: 'Stara',
+            saojose: 'São José',
             pulverizadores: 'Pulverizadores',
             autopropelidos: 'Autopropelidos',
             climatizacao: 'Climatização de cabine'
@@ -939,29 +928,19 @@
               ficha: [['Tipo', 'Fim de curso com haste'], ['Proteção', 'IP66'], ['Contato', 'AC15 240 V 3 A'], ['Norma', 'IEC 60947-5-1']] }
         ];
 
-        const PONTOS = [
-            { x: 51, y: 15, nome: 'Tela touch screen colorida' },
-            { x: 53, y: 42, nome: 'Central' },
-            { x: 14, y: 32, nome: 'Módulo eletrônico' },
-            { x: 89, y: 27, nome: 'Caixa de ligação com chicote' },
-            { x: 20, y: 64, nome: 'Sensor indutivo M18' },
-            { x: 86, y: 66, nome: 'Sensor de corpo plástico', baixo: true },
-            { x: 32, y: 86, nome: 'Chicote com conector Deutsch' }
-        ];
-
         // Confirmar o e-mail oficial antes de publicar: ele recebe as mensagens do formulário.
         const EMAIL = 'contato@fieldway.com';
 
         const CLIENTES = [
-            { nome: 'Kuhn', logo: 'kuhn', segmento: 'Plantio e pulverização',
+            { id: 'kuhn', nome: 'Kuhn', logo: 'kuhn', segmento: 'Plantio e pulverização',
               itens: ['Sensores indutivos M8 a M18', 'Monitores de turbina CMT-01', 'Chave de levante SLM-01/HH'] },
-            { nome: 'Stara', logo: 'stara', segmento: 'Telemetria e taxa variável',
+            { id: 'stara', nome: 'Stara', logo: 'stara', segmento: 'Telemetria e taxa variável',
               itens: ['Sensor de rotação SRA-01/ST', 'Sensor de velocidade SVA-01/ST', 'Sensores M12 com conector M12'] },
-            { nome: 'Horsch', logo: 'horsch', segmento: 'Plantio em alta velocidade',
+            { id: 'horsch', nome: 'Horsch', logo: 'horsch', segmento: 'Plantio em alta velocidade',
               itens: ['Sensores M12 e M18 com Superseal', 'Interruptor encapsulado'] },
-            { nome: 'Semeato', logo: 'semeato', segmento: 'Plantio direto',
+            { id: 'semeato', nome: 'Semeato', logo: 'semeato', segmento: 'Plantio direto',
               itens: ['Sensores M12', 'Circuitos de monitoramento CORT'] },
-            { nome: 'São José', logo: 'sao-jose', segmento: 'Implementos robustos',
+            { id: 'saojose', nome: 'São José', logo: 'sao-jose', segmento: 'Implementos robustos',
               itens: ['Sensores e eletrônica sob consulta'] }
         ];
 
@@ -1048,22 +1027,6 @@
         }, { rootMargin: '-45% 0px -45% 0px' });
         passos.querySelectorAll('.passo').forEach((el) => obsPassos.observe(el));
 
-        // ---------- Sistema: pontos na foto ----------
-        const kit = $('#kit');
-        const componentes = $('#componentes');
-        PONTOS.forEach((p, i) => {
-            kit.insertAdjacentHTML('beforeend',
-                `<button class="ponto${p.baixo ? ' rotulo-baixo' : ''}${p.x > 65 ? ' ancora-dir' : p.x < 35 ? ' ancora-esq' : ''}" style="left:${p.x}%;top:${p.y}%" data-p="${i}" aria-label="${esc(p.nome)}"><span class="ponto-rotulo">${esc(p.nome)}</span></button>`);
-            componentes.insertAdjacentHTML('beforeend', `<li><button type="button" data-p="${i}">${esc(p.nome)}</button></li>`);
-        });
-        function ativaPonto(i) {
-            document.querySelectorAll('[data-p]').forEach((el) => el.classList.toggle('is-ativo', el.dataset.p === String(i)));
-        }
-        document.querySelectorAll('[data-p]').forEach((el) => {
-            el.addEventListener('click', () => ativaPonto(el.classList.contains('is-ativo') ? -1 : el.dataset.p));
-            if (el.closest('#componentes')) el.addEventListener('mouseenter', () => ativaPonto(el.dataset.p));
-        });
-
         // ---------- Catálogo ----------
         const busca = $('#busca');
         const filtros = $('#filtros');
@@ -1077,9 +1040,21 @@
             .map(([id, nome, n]) => `<button type="button" class="filtro" data-f="${id}" aria-pressed="${id === filtro}">${esc(nome)} <small>${n}</small></button>`)
             .join('');
 
+        const faixa = $('#cliente-faixa');
+        function atualizaFaixa() {
+            const c = CLIENTES.find((x) => x.id === filtro);
+            faixa.hidden = !c;
+            if (!c) return;
+            faixa.innerHTML = `
+                <div class="cliente-faixa-logo"><img src="Images/web/marcas/${c.logo}.png" alt=""></div>
+                <div class="cliente-faixa-texto"><strong>Peças para ${esc(c.nome)}</strong><span>${esc(c.segmento)} · ${contaLinha(c.id)} ${contaLinha(c.id) === 1 ? 'peça' : 'peças'} no catálogo</span></div>
+                <button type="button" class="btn btn-copiar" data-filtrar="todos">Ver catálogo completo</button>`;
+        }
+
         function aplicaFiltro(id) {
             filtro = id;
             filtros.querySelectorAll('.filtro').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.f === id)));
+            atualizaFaixa();
             renderiza();
         }
         filtros.addEventListener('click', (e) => {
@@ -1097,10 +1072,18 @@
             contagem.innerHTML = `<b>${itens.length}</b> de ${CATALOGO.length} peças`;
 
             if (!itens.length) {
+                const cliente = CLIENTES.find((x) => x.id === filtro);
+                const semBusca = !termo;
+                const titulo = semBusca && cliente
+                    ? `Ainda não há peças de ${cliente.nome} listadas aqui.`
+                    : `Nenhuma peça encontrada para “${busca.value.trim()}”.`;
+                const msg = semBusca && cliente
+                    ? `Olá! Gostaria de consultar as peças da ${cliente.nome}.`
+                    : `Olá! Procuro a peça: ${busca.value.trim()}`;
                 corpo.innerHTML = `<tr class="sem-resultado"><td colspan="5">
-                    <strong>Nenhuma peça encontrada para “${esc(busca.value.trim())}”.</strong>
-                    <p>Confira o código ou mande a referência para a nossa equipe, que fazemos a busca por você.</p>
-                    <a class="btn btn-primario" href="${linkWhats(`Olá! Procuro a peça: ${busca.value.trim()}`)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Perguntar no WhatsApp</a>
+                    <strong>${esc(titulo)}</strong>
+                    <p>${semBusca && cliente ? 'Fale com a nossa equipe e informe o modelo do equipamento que a gente indica a peça certa.' : 'Confira o código ou mande a referência para a nossa equipe, que fazemos a busca por você.'}</p>
+                    <a class="btn btn-primario" href="${linkWhats(msg)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Perguntar no WhatsApp</a>
                 </td></tr>`;
                 return;
             }
@@ -1115,7 +1098,7 @@
                     </td>
                     <td class="num col-cod${p.cod ? '' : ' vazio'}">${p.cod ? esc(p.cod) : 'Sob consulta'}</td>
                     <td class="num col-ref${p.ref ? '' : ' vazio'}">${p.ref ? esc(p.ref) : '—'}</td>
-                    <td class="tag-linha col-linha">${esc(LINHAS[p.linhas[0]])}</td>
+                    <td class="tag-linha col-linha">${esc(LINHAS[p.linhas.includes(filtro) ? filtro : p.linhas[0]])}</td>
                     <td><a class="orcar" href="${linkWhats(mensagemPeca(p))}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Orçar</a></td>
                 </tr>`).join('');
         }
@@ -1131,7 +1114,48 @@
             if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); abreGaveta(Number(tr.dataset.i), tr); }
         });
 
-        document.querySelectorAll('[data-filtrar]').forEach((a) => a.addEventListener('click', () => aplicaFiltro(a.dataset.filtrar)));
+        // Links com data-filtrar (menu, rodapé, faixa e cartões de clientes) aplicam o filtro e rolam até o catálogo.
+        document.addEventListener('click', (e) => {
+            const a = e.target.closest('[data-filtrar]');
+            if (!a) return;
+            e.preventDefault();
+            aplicaFiltro(a.dataset.filtrar);
+            vaiAoCatalogo();
+        });
+
+        // Imagens com carregamento tardio mudam a altura da página durante a rolagem suave e ela para antes do destino; confere no fim e corrige.
+        function vaiAoCatalogo() {
+            const alvo = $('#catalogo');
+            alvo.scrollIntoView({ behavior: reduzMovimento ? 'instant' : 'smooth', block: 'start' });
+            if (reduzMovimento) return;
+            setTimeout(() => {
+                if (Math.abs(alvo.getBoundingClientRect().top - header.offsetHeight) > 8) alvo.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }, 1200);
+        }
+
+        // ---------- Menu suspenso: catálogo por cliente ----------
+        const submenu = $('#submenu');
+        submenu.innerHTML = `
+            <div class="submenu-titulo">Consultar peças por cliente</div>
+            <ul>${CLIENTES.map((c) => {
+                const n = contaLinha(c.id);
+                return `<li><a href="#catalogo" data-filtrar="${c.id}">
+                    <span class="submenu-logo"><img src="Images/web/marcas/${c.logo}.png" alt="" loading="lazy"></span>
+                    <span class="submenu-nome"><b>${esc(c.nome)}</b><small>${n ? `${n} ${n === 1 ? 'peça' : 'peças'}` : 'Sob consulta'}</small></span>
+                    <i class="fas fa-arrow-right submenu-seta" aria-hidden="true"></i>
+                </a></li>`;
+            }).join('')}</ul>
+            <a class="submenu-todos" href="#catalogo" data-filtrar="todos"><span>Ver catálogo completo (${CATALOGO.length})</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>`;
+
+        // Após escolher, recolhe o painel mesmo com o mouse ainda por cima; volta a abrir quando o mouse sai e entra de novo.
+        const menuCatalogo = $('#menu-catalogo');
+        submenu.addEventListener('click', (e) => {
+            if (!e.target.closest('a')) return;
+            menuCatalogo.classList.add('recolhido');
+            document.activeElement?.blur();
+            fechaMenu();
+        });
+        menuCatalogo.addEventListener('mouseleave', () => menuCatalogo.classList.remove('recolhido'));
         renderiza();
 
         // ---------- Gaveta de detalhes ----------
@@ -1206,6 +1230,7 @@
                         <div><dt>Segmento</dt><dd>${esc(c.segmento)}</dd></div>
                         <div><dt>O que fornecemos</dt><dd><ul class="cliente-itens">${c.itens.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></dd></div>
                     </dl>
+                    <a class="link-seta cliente-link" href="#catalogo" data-filtrar="${c.id}">Ver peças de ${esc(c.nome)} no catálogo <i class="fas fa-arrow-right"></i></a>
                 </div>`);
         });
 
@@ -1293,7 +1318,7 @@
         });
 
         // ---------- Navegação ativa ----------
-        const navLinks = document.querySelectorAll('#nav ul a');
+        const navLinks = document.querySelectorAll('#nav ul > li > a');
         const obsSecoes = new IntersectionObserver((entradas) => {
             entradas.forEach((e) => {
                 if (!e.isIntersecting) return;
