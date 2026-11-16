@@ -368,28 +368,28 @@
         .clientes-lista button.is-ativo .cliente-nome { transform: translateX(14px); }
         .cliente-seg { font-size: 0.92rem; text-align: right; }
 
-        .cliente-palco { position: relative; min-height: 520px; background: #fff; border-radius: 4px; overflow: hidden; }
+        /* Todas as cenas ocupam a mesma célula da grade: o painel ganha a altura da maior e nada é cortado. */
+        .cliente-palco { position: relative; display: grid; container-type: inline-size; min-height: 480px; background: #fff; border-radius: 4px; overflow: hidden; }
         .cliente-cena {
-            position: absolute; inset: 0; display: flex; flex-direction: column; padding: clamp(28px, 4vw, 48px);
+            grid-area: 1 / 1; position: relative; display: flex; flex-direction: column; padding: clamp(24px, 4vw, 48px);
             opacity: 0; visibility: hidden; transition: opacity 0.6s, visibility 0.6s;
         }
         .cliente-cena.is-ativo { opacity: 1; visibility: visible; }
-        .cliente-logo { flex: 1; display: grid; place-items: center; position: relative; z-index: 1; }
+        .cliente-logo { flex: 0 0 auto; height: clamp(150px, 20cqw + 60px, 230px); margin-bottom: 8px; display: grid; place-items: center; position: relative; z-index: 1; }
         .cliente-logo img {
-            max-width: min(68%, 380px); max-height: 170px; object-fit: contain; mix-blend-mode: multiply;
+            max-width: min(68%, 380px); max-height: 100%; object-fit: contain; mix-blend-mode: multiply;
             transform: scale(0.94); transition: transform 1.1s var(--ease);
         }
         .cliente-cena.is-ativo .cliente-logo img { transform: none; }
         .cliente-eco {
             position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
-            font-family: var(--display); font-weight: 700; font-size: clamp(7rem, 17vw, 15rem); line-height: 1; text-align: center;
+            font-family: var(--display); font-weight: 700; font-size: clamp(4rem, calc(86cqw / (var(--n, 6) * 0.5)), 15rem); line-height: 1; text-align: center;
             color: transparent; -webkit-text-stroke: 1px rgba(42, 45, 52, 0.07); white-space: nowrap; pointer-events: none;
         }
         .cliente-dados { position: relative; z-index: 1; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; border-top: 1px solid var(--linha); padding-top: 22px; }
         .cliente-dados dt { font-size: 0.82rem; color: var(--texto-2); margin-bottom: 8px; }
         .cliente-dados dd { font-weight: 600; }
-        .cliente-link { position: relative; z-index: 1; margin-top: 22px; }
-        .cliente-itens { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+        .cliente-link { position: relative; z-index: 1; margin-top: auto; padding-top: 22px; align-self: flex-start; }        .cliente-itens { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
         .cliente-itens li { padding: 5px 11px; background: var(--papel); border-radius: 3px; font-size: 0.9rem; font-weight: 500; }
 
         /* === CONTATO === */
@@ -524,7 +524,7 @@
             .sem-resultado { display: block !important; }
 
             .clientes-grade { grid-template-columns: 1fr; }
-            .cliente-palco { min-height: 420px; order: -1; }
+            .cliente-palco { min-height: 0; order: -1; }
         }
 
         @media (max-width: 560px) {
@@ -534,7 +534,6 @@
             .hero-dados div { padding: 18px 12px 20px 0; }
             .hero-dados div + div { padding-left: 14px; }
             .hero-dados div:nth-child(3) { padding-left: 0; }
-            .cliente-palco { min-height: 400px; }
             .cliente-dados { grid-template-columns: 1fr; gap: 14px; }
             .cliente-seg { display: none; }
             .formulario { grid-template-columns: 1fr; }
@@ -972,7 +971,7 @@
         ];
 
         // Confirmar o e-mail oficial antes de publicar: ele recebe as mensagens do formulário.
-        const EMAIL = 'vendas@fieldway.com.br;'
+        const EMAIL = 'vendas@fieldway.com.br'
 
         const CLIENTES = [
             { id: 'kuhn', nome: 'Kuhn', logo: 'kuhn', segmento: 'Plantio e pulverização',
@@ -1269,7 +1268,7 @@
                 </button></li>`);
             clientePalco.insertAdjacentHTML('beforeend', `
                 <div class="cliente-cena${i === 0 ? ' is-ativo' : ''}" id="cliente-${i}" role="tabpanel" aria-labelledby="cliente-tab-${i}">
-                    <span class="cliente-eco" aria-hidden="true">${esc(c.nome)}</span>
+                    <span class="cliente-eco" style="--n:${c.nome.length}" aria-hidden="true">${esc(c.nome)}</span>
                     <div class="cliente-logo"><img src="Images/web/marcas/${c.logo}.png" alt="Logo ${esc(c.nome)}" loading="lazy"></div>
                     <dl class="cliente-dados">
                         <div><dt>Segmento</dt><dd>${esc(c.segmento)}</dd></div>
