@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FieldWay</title>
 
-    <meta name="description" content="Sensores indutivos, circuitos de monitoramento e módulos eletrônicos para Kuhn, Horsch, Semeato e Stara. Catálogo com referência cruzada da montadora e orçamento direto pelo WhatsApp.">
+    <meta name="description" content="Sensores indutivos, circuitos de monitoramento e módulos eletrônicos para Kuhn, Horsch, Semeato, Stara e Vence Tudo. Catálogo com referência cruzada da montadora e orçamento direto pelo WhatsApp.">
     <meta name="theme-color" content="#2A2D34">
     <meta property="og:title" content="FieldWay | Precisão que guia o campo">
     <meta property="og:description" content="Sensores e eletrônica para implementos agrícolas, com a mesma referência da montadora.">
@@ -307,6 +307,15 @@
             transition: border-color 0.2s, color 0.2s, background-color 0.2s;
         }
         .orcar:hover { background: var(--verde); border-color: var(--verde); color: #fff; }
+        .tabela thead th { white-space: nowrap; }
+        .tabela td.col-preco.vazio { font-weight: 400; color: var(--texto-2); }
+        .condicoes { margin-top: 40px; padding: 28px 32px; background: var(--estudio); border-radius: 12px; }
+        .condicoes h3 { font-size: 1.05rem; margin: 0 0 6px; }
+        .condicoes > p { margin: 0 0 18px; color: var(--texto-2); font-size: 0.92rem; }
+        .condicoes dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px 28px; margin: 0; }
+        .condicoes dt { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--texto-2); margin-bottom: 2px; }
+        .condicoes dd { margin: 0; font-weight: 600; }
+        .condicoes small { display: block; margin-top: 18px; color: var(--texto-2); font-size: 0.82rem; }
         .sem-resultado td { padding: 56px 0; text-align: left !important; cursor: default; }
         .sem-resultado:hover { background: none !important; }
         .sem-resultado p { color: var(--texto-2); margin: 6px 0 18px; }
@@ -507,11 +516,11 @@
 
             .tabela thead { display: none; }
             .tabela, .tabela tbody { display: block; }
-            .tabela tbody tr { display: grid; grid-template-columns: 1fr auto; gap: 10px 14px; padding: 16px 0; }
+            .tabela tbody tr { display: grid; grid-template-columns: 1fr auto auto; gap: 10px 14px; padding: 16px 0; align-items: center; }
             .tabela td { padding: 0; }
             .tabela td:nth-child(1) { grid-column: 1 / -1; }
-            .tabela td.col-ref, .tabela td.col-linha { display: none; }
-            .tabela td.col-cod::before { content: 'Cód. '; font-weight: 400; color: var(--texto-2); }
+            .tabela td.col-linha { display: none; }
+            .tabela td.col-ref::before { content: 'Ref. '; font-weight: 400; color: var(--texto-2); }
             .sem-resultado { display: block !important; }
 
             .clientes-grade { grid-template-columns: 1fr; }
@@ -613,7 +622,7 @@
             <div class="wrap">
                 <div class="hero-dados">
                     <div><strong id="dado-refs">55</strong><span>referências no catálogo</span></div>
-                    <div><strong>4</strong><span>montadoras com referência cruzada</span></div>
+                    <div><strong>5</strong><span>montadoras com referência cruzada</span></div>
                     <div><strong>M8–M18</strong><span>roscas de sensores indutivos</span></div>
                     <div><strong>10–30 Vcc</strong><span>faixa de alimentação</span></div>
                 </div>
@@ -647,7 +656,7 @@
             <div class="wrap">
                 <div class="secao-topo">
                     <h2>Catálogo técnico</h2>
-                    <p class="lead">Busque pelo código FieldWay, pela referência da montadora ou pela descrição. Toque em uma linha para ver a ficha completa.</p>
+                    <p class="lead">Busque pela referência da montadora ou pela descrição, e já veja o valor unitário. Toque em uma linha para ver a ficha completa.</p>
                 </div>
 
                 <div class="ferramentas">
@@ -667,14 +676,28 @@
                     <thead>
                         <tr>
                             <th scope="col">Peça</th>
-                            <th scope="col">Código</th>
                             <th scope="col">Ref. montadora</th>
+                            <th scope="col">Valor unitário</th>
                             <th scope="col">Linha</th>
                             <th scope="col"><span class="sr-only">Ação</span></th>
                         </tr>
                     </thead>
                     <tbody id="linhas"></tbody>
                 </table>
+
+                <div class="condicoes" id="condicoes">
+                    <h3>Condições comerciais</h3>
+                    <p>Valores unitários em reais (R$), tabela para clientes finais. Outros modelos sob consulta.</p>
+                    <dl>
+                        <div><dt>Validade da tabela</dt><dd>31/12/2026</dd></div>
+                        <div><dt>Entrega</dt><dd>15 dias úteis</dd></div>
+                        <div><dt>Pagamento</dt><dd>28 dias</dd></div>
+                        <div><dt>Primeira compra</dt><dd>À vista</dd></div>
+                        <div><dt>Frete</dt><dd>FOB</dd></div>
+                        <div><dt>Descontos</dt><dd>Progressivos por quantidade</dd></div>
+                    </dl>
+                    <small>Vendas a prazo sujeitas à aprovação de crédito. Faturado pelo Simples Nacional.</small>
+                </div>
             </div>
         </section>
 
@@ -703,7 +726,7 @@
             <div class="wrap contato-grade">
                 <div>
                     <h2>Fale com a FieldWay.</h2>
-                    <p class="lead">Preencha o formulário e escolha como prefere enviar. Se tiver o código da peça, já informe para agilizar o orçamento.</p>
+                    <p class="lead">Preencha o formulário e escolha como prefere enviar. Se tiver a referência da peça, já informe para agilizar o orçamento.</p>
                     <ul class="contato-direto">
                         <li><a href="https://wa.me/5554991739188" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i><div><span>WhatsApp</span>(54) 99173-9188</div></a></li>
                         <li><a href="mailto:vendas@fieldway.com.br" id="link-email"><i class="far fa-envelope"></i><div><span>E-mail</span><b id="texto-email" style="font-weight:500">contato@fieldway.com</b></div></a></li>
@@ -731,8 +754,8 @@
                         <span class="campo-erro">Confira o e-mail digitado.</span>
                     </div>
                     <div class="campo inteiro">
-                        <label for="f-codigo">Código da peça <small>(opcional)</small></label>
-                        <input id="f-codigo" name="codigo" type="text" placeholder="Código FieldWay ou referência da montadora">
+                        <label for="f-codigo">Referência da peça <small>(opcional)</small></label>
+                        <input id="f-codigo" name="codigo" type="text" placeholder="Referência da montadora">
                     </div>
                     <div class="campo inteiro">
                         <label for="f-mensagem">Mensagem</label>
@@ -820,9 +843,9 @@
             </div>
             <div class="gaveta-acoes">
                 <a class="btn btn-primario" id="gaveta-whats" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Pedir orçamento desta peça</a>
-                <button class="btn btn-copiar" id="gaveta-copiar" type="button">Copiar código</button>
+                <button class="btn btn-copiar" id="gaveta-copiar" type="button">Copiar referência</button>
             </div>
-            <p class="gaveta-nota">A mensagem do WhatsApp já vai com o código e a referência preenchidos.</p>
+            <p class="gaveta-nota">A mensagem do WhatsApp já vai com a referência preenchida.</p>
         </div>
     </aside>
 
@@ -837,12 +860,24 @@
             semeato: 'Semeato',
             stara: 'Stara',
             saojose: 'São José',
+            vencetudo: 'Vence Tudo',
             pulverizadores: 'Pulverizadores',
             autopropelidos: 'Autopropelidos',
             climatizacao: 'Climatização de cabine'
         };
 
-        // Fonte: lista OEM/distribuição 02/03/23. "cod" é o código FieldWay, "ref" a referência da montadora.
+        // Valores unitários da "Tabela para clientes finais", válida até 31/12/2026. Chave = referência da montadora.
+        const PRECOS = {
+            '24052200': 381.57, '00345413': 506.39, '60018849': 702.65, '00346714': 405.93,
+            '86951523': 381.72, '86951511': 381.57, '86951516': 381.72, '86951512': 987.56,
+            '76197101': 1040.15, '76197102': 1104.41, '76197106': 1156.07, '76197401': 1040.15,
+            '83234201': 496.04, '83234213': 496.04, '83234212': 496.04, 'YX916029': 607.56,
+            'Y8377636': 690.66, 'Y5937390': 2195.54,
+            '73104992': 424.02, '73104045': 550.01, '73104063': 395.54
+        };
+        const moeda = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        // Fonte: lista OEM/distribuição 02/03/23. "ref" é a referência da montadora (é o que aparece no site); "cod" é o código interno FieldWay e não é exibido.
         const CATALOGO = [
             { cod: '354', ref: '83234201', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-8N-DS2-CA', specs: ['M8', 'NPN', 'Alcance 2 mm', '10–30 Vcc'], foto: 'kuhn-m8-83234201' },
             { cod: '355', ref: '83234213', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12N-DS4-CA', specs: ['M12', 'NPN', 'Alcance 4 mm', '10–30 Vcc'] },
@@ -854,7 +889,7 @@
             { cod: '941', ref: '', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K3', specs: ['3 sensores', 'Temporização 20 s', '1 Superseal 3VM + 3 Superseal 3VF'] },
             { cod: '982', ref: 'Y59377390A', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo M18 não faceado', specs: ['NPN-NO', 'Alcance 5 mm', '10–30 Vcc'], foto: 'kuhn-m18-y59377390a' },
             { cod: '1533', ref: '', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor de levante M18 PNP-NO', specs: ['Alcance 5 mm', 'Faceado', 'Conector Delphi 3VF', '10–30 Vcc'] },
-            { cod: '1687', ref: '5937390', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K2 com chicote', specs: ['2 sensores', 'Temporização 20 s', 'Chicote acoplado até a cabine'], foto: 'kuhn-cmt01-k2' },
+            { cod: '1687', ref: 'Y5937390', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K2 com chicote', specs: ['Caixa RPM quadra A.F. 10000', '2 sensores', 'Temporização 20 s', 'Chicote acoplado até a cabine'], foto: 'kuhn-cmt01-k2' },
             { cod: '2221', ref: 'Y6531910', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12N-DS4-CA', specs: ['M12', 'NPN', 'Alcance 4 mm', '10–30 Vcc'] },
             { cod: '2423', ref: '83234219', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor SIA-12N-DS4-CA Accura', specs: ['M12', 'NPN', 'Alcance 4 mm', 'Conector Deutsch DT04-6P'], foto: 'kuhn-m12-deutsch-83234219' },
             { cod: '2940', ref: 'Y8377636', linhas: ['kuhn'], tipo: 'peca', nome: 'Chave de levante SLM-01/HH', specs: ['Fim de curso com haste', 'IP66', 'AC15 240 V 3 A'], foto: 'chave-levante-slm01' },
@@ -867,19 +902,25 @@
             { cod: '3427', ref: '60018849', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor M18 de corpo plástico', specs: ['NPN/NF', 'Alcance 8 mm', 'Cabo 322 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m18-plastico-60018849' },
             { cod: '3429', ref: '00346714', linhas: ['horsch'], tipo: 'peca', nome: 'Interruptor encapsulado liga/desliga', specs: ['50 x 65 x 37 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-interruptor-00346714' },
 
-            { cod: '1327', ref: '86951523', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12P-SD2-CO', specs: ['M12', 'PNP'] },
-            { cod: '1328', ref: '86951511', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CO', specs: ['M12', 'NPN'] },
-            { cod: '1329', ref: '86951516', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CA', specs: ['M12', 'NPN', 'Superseal 3VM'] },
-            { cod: '1330', ref: '86951512', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SMA-12NA-SD8-CA', specs: ['Superseal 3VM'] },
+            { cod: '1327', ref: '86951523', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12P-SD2-CO', specs: ['M12', 'PNP', 'Levante, velocidade (roda) e turbina', 'Índice de troca alto'] },
+            { cod: '1328', ref: '86951511', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CO', specs: ['M12', 'NPN', 'RPM da turbina (3 por máquina) e rodado Soltt (1 por máquina)', 'Índice de troca alto'] },
+            { cod: '1329', ref: '86951516', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CA', specs: ['M12', 'NPN', 'Superseal 3VM', 'RPM da turbina Sol Tower', 'Índice de troca médio'] },
+            { cod: '1330', ref: '86951512', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SMA-12NA-SD8-CA', specs: ['Superseal 3VM', 'Levante da plantadeira Soltt', 'Índice de troca alto'] },
             { cod: '646', ref: '76197101', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/2S', specs: ['2 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 5VM'] },
             { cod: '652', ref: '76197102', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/3S', specs: ['3 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 5VM'] },
             { cod: '653', ref: '76197106', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/4S', specs: ['4 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 6VM'] },
-            { cod: '679', ref: '76197401', linhas: ['semeato'], tipo: 'circuito', nome: 'Oscilador de sinal CORT-01/2S', specs: ['2 sensores', 'Temporização 3 s'] },
+            { cod: '679', ref: '76197401', linhas: ['semeato'], tipo: 'circuito', nome: 'Oscilador de sinal CORT-01/2S', specs: ['2 sensores', 'Temporização 3 s', 'Canal 1: LED vermelho, cabo 600 mm', 'Canal 2: LED azul, cabo 3300 mm', 'Conector Delphi 3 vias'] },
             { cod: '2776', ref: '', linhas: ['semeato'], tipo: 'circuito', nome: 'CORT-02 tubular', specs: [] },
 
-            { cod: '324', ref: '73104992', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de rotação SRA-01/ST', specs: ['Suporte de fixação', 'Superseal'], foto: 'stara-sra01-73104992' },
-            { cod: '325', ref: '73104045', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de velocidade SVA-01/ST', specs: [] },
+            { cod: '324', ref: '73104992', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de rotação SRA-01/ST', specs: ['Aplicação: Hércules', 'Suporte de fixação', 'Superseal', 'Índice de troca alto'], foto: 'stara-sra01-73104992' },
+            { cod: '325', ref: '73104045', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de velocidade SVA-01/ST', specs: ['Aplicação: Hércules', 'Índice de troca alto'] },
             { cod: '3532', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor indutivo M12 faceado', specs: ['NPN NO/NC', 'Alcance 2 mm', 'Conector M12 4 pinos', 'IP-67'] },
+
+            { cod: '', ref: '73104992', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor de rotação SRA-01/ST', specs: ['Aplicação: Hércules', 'Índice de troca alto'], preco: 190.82 },
+            { cod: '', ref: '73104045', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor de velocidade SVA-01/ST', specs: ['Aplicação: Hércules', 'Índice de troca alto'], preco: 357.51 },
+            { cod: '', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor indutivo M12 faceado', specs: ['NPN NO/NC', 'Alcance 2 mm', 'Conector M12 4 pinos', 'IP-67'], preco: 316.43 },
+
+            { cod: '', ref: '', linhas: ['vencetudo'], tipo: 'sensor', nome: 'Sensor magnético SMA-01/VT', specs: ['Cabo 2,5 m', 'Levante da plantadeira', 'Índice de troca alto'], preco: 987.56 },
 
             { cod: '3097', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'circuito', nome: 'Placa PLCAB-01 IHM V1', specs: ['Ar-condicionado digital', 'Modbus', '12 Vcc'] },
             { cod: '1836', ref: '', linhas: ['climatizacao', 'autopropelidos'], tipo: 'circuito', nome: 'Placa PLCAB-01 CPU V2', specs: ['Ar-condicionado digital', 'Modbus', '12 Vcc'] },
@@ -907,11 +948,13 @@
             { cod: '', ref: '', linhas: ['pulverizadores'], tipo: 'peca', nome: 'Sensor de levante helicoidal', specs: ['Fim de curso com haste'], foto: 'chave-levante-slm01' }
         ];
 
+        CATALOGO.forEach((p) => { if (p.preco === undefined && PRECOS[p.ref] !== undefined) p.preco = PRECOS[p.ref]; });
+
         const DESTAQUES = [
             { foto: 'kuhn-m18-pnp-83234224', marca: 'Kuhn', ref: '83234224', cod: '2969', nome: 'Sensor indutivo M18 PNP',
               texto: 'Detecta metal sem contato. Face não faceada para alcance de 8 mm e conector Delphi de 3 vias montado no cabo de 1 m.',
               ficha: [['Rosca', 'M18'], ['Saída', 'PNP-NO'], ['Alcance', '8 mm'], ['Alimentação', '10–30 Vcc'], ['Conector', 'Delphi 3 vias'], ['Cabo', '1 m']] },
-            { foto: 'kuhn-cmt01-k2', marca: 'Kuhn', ref: '5937390', cod: '1687', nome: 'Monitor de turbinas CMT‑01/K2',
+            { foto: 'kuhn-cmt01-k2', marca: 'Kuhn', ref: 'Y5937390', cod: '1687', nome: 'Monitor de turbinas CMT‑01/K2',
               texto: 'Acompanha dois sensores e sinaliza cada turbina por LED. Vem com chicote trançado para levar o sinal até a cabine.',
               ficha: [['Entradas', '2 sensores'], ['Temporização', '20 s'], ['Indicação', 'LED por turbina'], ['Ligação', 'Chicote até a cabine']] },
             { foto: 'horsch-m18-plastico-60018849', marca: 'Horsch', ref: '60018849', cod: '3427', nome: 'Sensor M18 de corpo plástico',
@@ -920,7 +963,7 @@
             { foto: 'horsch-interruptor-00346714', marca: 'Horsch', ref: '00346714', cod: '3429', nome: 'Interruptor encapsulado',
               texto: 'Caixa selada com alavanca liga/desliga e saída em Superseal de 3 vias, pronta para o chicote do implemento.',
               ficha: [['Dimensões', '50 x 65 x 37 mm'], ['Função', 'Liga/desliga'], ['Conector', 'Superseal 3 vias'], ['Proteção', 'IP-67']] },
-            { foto: 'transdutor-10bar-4105', marca: 'Pulverizadores', ref: '4105', cod: '4105', nome: 'Sensor de fluxo/vazão 10 bar',
+            { foto: 'transdutor-10bar-4105', marca: 'Pulverizadores', ref: '', cod: '4105', nome: 'Sensor de fluxo/vazão 10 bar',
               texto: 'Saída analógica para o controle de aplicação, com rosca de 1/4" e conector angular.',
               ficha: [['Faixa', '10 bar'], ['Alimentação', '12/24 Vcc'], ['Rosca', '1/4"'], ['Saída', 'Analógica']] },
             { foto: 'chave-levante-slm01', marca: 'Kuhn', ref: 'Y8377636', cod: '2940', nome: 'Chave de levante SLM-01/HH',
@@ -941,7 +984,9 @@
             { id: 'semeato', nome: 'Semeato', logo: 'semeato', segmento: 'Plantio direto',
               itens: ['Sensores M12', 'Circuitos de monitoramento CORT'] },
             { id: 'saojose', nome: 'São José', logo: 'sao-jose', segmento: 'Implementos robustos',
-              itens: ['Sensores e eletrônica sob consulta'] }
+              itens: ['Sensores e eletrônica sob consulta'] },
+            { id: 'vencetudo', nome: 'Vence Tudo', logo: 'vence-tudo', segmento: 'Plantadeiras',
+              itens: ['Sensor magnético SMA-01/VT para levante de plantadeira'] }
         ];
 
         const $ = (s) => document.querySelector(s);
@@ -952,7 +997,7 @@
         const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         function mensagemPeca(p) {
-            const partes = [p.cod && `cód. FieldWay ${p.cod}`, p.ref && `ref. montadora ${p.ref}`].filter(Boolean).join(' / ');
+            const partes = p.ref ? `ref. montadora ${p.ref}` : '';
             return `Olá! Gostaria de um orçamento: ${p.nome}${partes ? ` (${partes})` : ''}.`;
         }
 
@@ -1004,11 +1049,11 @@
             passos.insertAdjacentHTML('beforeend', `
                 <article class="passo${i === 0 ? ' is-ativo' : ''}" data-i="${i}">
                     <div class="passo-foto"><img src="Images/web/${d.foto}.jpg" alt="${esc(d.nome)}" loading="lazy"></div>
-                    <span class="meta">${esc(d.marca)} · Ref. ${esc(d.ref)} · Cód. ${esc(d.cod)}</span>
+                    <span class="meta">${esc(d.marca)}${d.ref ? ` · Ref. ${esc(d.ref)}` : ''}</span>
                     <h3>${esc(d.nome)}</h3>
                     <p>${esc(d.texto)}</p>
                     <dl class="ficha">${ficha}</dl>
-                    <a class="link-seta" href="${linkWhats(`Olá! Gostaria de um orçamento: ${d.nome} (cód. FieldWay ${d.cod} / ref. ${d.ref}).`)}" target="_blank" rel="noopener noreferrer">Pedir orçamento <i class="fas fa-arrow-right"></i></a>
+                    <a class="link-seta" href="${linkWhats(`Olá! Gostaria de um orçamento: ${d.nome} ${d.ref ? `(ref. ${d.ref})` : ''}.`)}" target="_blank" rel="noopener noreferrer">Pedir orçamento <i class="fas fa-arrow-right"></i></a>
                 </article>`);
         });
 
@@ -1019,7 +1064,7 @@
             palcoFotos.querySelectorAll('.palco-foto').forEach((el, j) => el.classList.toggle('is-ativo', j === i));
             progresso.querySelectorAll('i').forEach((el, j) => el.classList.toggle('is-ativo', j <= i));
             passos.querySelectorAll('.passo').forEach((el, j) => el.classList.toggle('is-ativo', j === i));
-            palcoRef.textContent = DESTAQUES[i].ref;
+            palcoRef.textContent = DESTAQUES[i].ref || DESTAQUES[i].nome;
             palcoMarca.textContent = DESTAQUES[i].marca;
         }
         const obsPassos = new IntersectionObserver((entradas) => {
@@ -1067,7 +1112,7 @@
             const itens = CATALOGO
                 .map((p, i) => ({ p, i }))
                 .filter(({ p }) => filtro === 'todos' || p.linhas.includes(filtro))
-                .filter(({ p }) => !termo || normaliza([p.cod, p.ref, p.nome, p.specs.join(' '), p.linhas.map((l) => LINHAS[l]).join(' ')].join(' ')).includes(termo));
+                .filter(({ p }) => !termo || normaliza([p.ref, p.nome, p.specs.join(' '), p.linhas.map((l) => LINHAS[l]).join(' ')].join(' ')).includes(termo));
 
             contagem.innerHTML = `<b>${itens.length}</b> de ${CATALOGO.length} peças`;
 
@@ -1082,7 +1127,7 @@
                     : `Olá! Procuro a peça: ${busca.value.trim()}`;
                 corpo.innerHTML = `<tr class="sem-resultado"><td colspan="5">
                     <strong>${esc(titulo)}</strong>
-                    <p>${semBusca && cliente ? 'Fale com a nossa equipe e informe o modelo do equipamento que a gente indica a peça certa.' : 'Confira o código ou mande a referência para a nossa equipe, que fazemos a busca por você.'}</p>
+                    <p>${semBusca && cliente ? 'Fale com a nossa equipe e informe o modelo do equipamento que a gente indica a peça certa.' : 'Confira a referência ou mande o modelo para a nossa equipe, que fazemos a busca por você.'}</p>
                     <a class="btn btn-primario" href="${linkWhats(msg)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Perguntar no WhatsApp</a>
                 </td></tr>`;
                 return;
@@ -1096,8 +1141,8 @@
                             <div><strong>${esc(p.nome)}</strong>${p.specs.length ? `<span>${esc(p.specs.join(' · '))}</span>` : ''}</div>
                         </div>
                     </td>
-                    <td class="num col-cod${p.cod ? '' : ' vazio'}">${p.cod ? esc(p.cod) : 'Sob consulta'}</td>
                     <td class="num col-ref${p.ref ? '' : ' vazio'}">${p.ref ? esc(p.ref) : '—'}</td>
+                    <td class="num col-preco${p.preco !== undefined ? '' : ' vazio'}">${p.preco !== undefined ? moeda(p.preco) : 'Sob consulta'}</td>
                     <td class="tag-linha col-linha">${esc(LINHAS[p.linhas.includes(filtro) ? filtro : p.linhas[0]])}</td>
                     <td><a class="orcar" href="${linkWhats(mensagemPeca(p))}" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Orçar</a></td>
                 </tr>`).join('');
@@ -1170,12 +1215,12 @@
             $('#gaveta-foto').innerHTML = p.foto ? `<img src="Images/web/${p.foto}.jpg" alt="${esc(p.nome)}">` : glifo(p.tipo);
             $('#gaveta-linha').textContent = p.linhas.map((l) => LINHAS[l]).join(' · ');
             $('#gaveta-titulo').textContent = p.nome;
-            const campos = [['Código FieldWay', p.cod || 'Sob consulta'], ['Ref. montadora', p.ref || '—']];
+            const campos = [['Ref. montadora', p.ref || '—'], ['Valor unitário', p.preco !== undefined ? moeda(p.preco) : 'Sob consulta']];
             $('#gaveta-ficha').innerHTML = campos.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
             $('#gaveta-specs').innerHTML = p.specs.map((s) => `<li>${esc(s)}</li>`).join('');
             $('#gaveta-specs-bloco').hidden = !p.specs.length;
             $('#gaveta-whats').href = linkWhats(mensagemPeca(p));
-            $('#gaveta-copiar').hidden = !(p.cod || p.ref);
+            $('#gaveta-copiar').hidden = !p.ref;
             document.body.classList.add('gaveta-aberta');
             gaveta.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
@@ -1204,10 +1249,10 @@
             mostraAviso.t = setTimeout(() => aviso.classList.remove('is-visivel'), 2200);
         }
         $('#gaveta-copiar').addEventListener('click', async () => {
-            const texto = [pecaAberta.cod && `Cód. FieldWay ${pecaAberta.cod}`, pecaAberta.ref && `Ref. ${pecaAberta.ref}`].filter(Boolean).join(' / ');
+            const texto = `Ref. ${pecaAberta.ref}`;
             try {
                 await navigator.clipboard.writeText(texto);
-                mostraAviso('Código copiado');
+                mostraAviso('Referência copiada');
             } catch {
                 mostraAviso(texto);
             }
@@ -1295,7 +1340,7 @@
             }
 
             const extras = [
-                v('codigo') && `Código da peça: ${v('codigo')}`,
+                v('codigo') && `Referência da peça: ${v('codigo')}`,
                 v('telefone') && `Telefone: ${v('telefone')}`,
                 v('email') && `E-mail: ${v('email')}`
             ].filter(Boolean);
