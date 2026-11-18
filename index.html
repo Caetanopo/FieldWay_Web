@@ -622,7 +622,7 @@
                 <div class="hero-dados">
                     <div><strong id="dado-refs">55</strong><span>referências no catálogo</span></div>
                     <div><strong>5</strong><span>montadoras com referência cruzada</span></div>
-                    <div><strong>M8–M18</strong><span>roscas de sensores indutivos</span></div>
+                    <div><strong>15 dias úteis</strong><span>prazo de entrega</span></div>
                     <div><strong>10–30 Vcc</strong><span>faixa de alimentação</span></div>
                 </div>
             </div>
@@ -878,11 +878,11 @@
 
         // Fonte: lista OEM/distribuição 02/03/23. "ref" é a referência da montadora (é o que aparece no site); "cod" é o código interno FieldWay e não é exibido.
         const CATALOGO = [
-            { cod: '354', ref: '83234201', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-8N-DS2-CA', specs: ['M8', 'NPN', 'Alcance 2 mm', '10–30 Vcc'], foto: 'kuhn-m8-83234201' },
-            { cod: '355', ref: '83234213', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12N-DS4-CA', specs: ['M12', 'NPN', 'Alcance 4 mm', '10–30 Vcc'] },
-            { cod: '356', ref: '83234212', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12P-DS4-CA', specs: ['M12', 'PNP', 'Alcance 4 mm', '10–30 Vcc'] },
+            { cod: '354', ref: '83234201', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-8N-DS2-CA', specs: ['Alim. 10–30 Vcc', 'Especial Kuhn'], foto: 'kuhn-m8-83234201' },
+            { cod: '355', ref: '83234213', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12N-DS4-CA', specs: ['Alim. 10–30 Vcc', 'Especial Kuhn'] },
+            { cod: '356', ref: '83234212', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-12P-DS4-CA', specs: ['Alim. 10–30 Vcc', 'Especial Kuhn'] },
             { cod: '544', ref: 'Y8000544', linhas: ['kuhn'], tipo: 'peca', nome: 'Dissipador de calor em alumínio', specs: ['Usinado, 5 aletas', 'Rosca M8 x 1,00 mm', '30 x 20 mm'] },
-            { cod: '654', ref: 'YX916029', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-18N-DS8-CA', specs: ['M18', 'NPN', 'Alcance 8 mm', '10–30 Vcc'] },
+            { cod: '654', ref: 'YX916029', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo SIA-18N-DS8-CA', specs: ['Alim. 10–30 Vcc', 'Especial Kuhn'] },
             { cod: '939', ref: '83234223', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor de rotação M18', specs: ['NPN-NO', 'Alcance 5 mm', 'Faceado', 'Superseal macho', '10–30 Vcc'] },
             { cod: '940', ref: '', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K2', specs: ['2 sensores', 'Temporização 20 s', '1 Superseal 3VM + 2 Superseal 3VF'] },
             { cod: '941', ref: '', linhas: ['kuhn'], tipo: 'circuito', nome: 'Circuito CMT-01/K3', specs: ['3 sensores', 'Temporização 20 s', '1 Superseal 3VM + 3 Superseal 3VF'] },
@@ -896,14 +896,14 @@
             { cod: '3633', ref: '', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor indutivo M18 PNP, pinagem A+/B−/C', specs: ['PNP-NO', 'Alcance 8 mm', 'Não faceado', 'Delphi 3VF', 'Cabo 1 m'], foto: 'kuhn-m18-pnp-3633' },
             { cod: '3705', ref: '', linhas: ['kuhn'], tipo: 'sensor', nome: 'Sensor de levante M18 PNP-NC', specs: ['Alcance 5 mm', 'Faceado', 'Conector Delphi 3VF', '10–30 Vcc'] },
 
-            { cod: '3425', ref: '24052200', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor indutivo M12', specs: ['NPN/NO', 'Alcance 4 mm', 'Cabo 1000 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m12-24052200' },
-            { cod: '3426', ref: '00345413', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor indutivo M18', specs: ['NPN/NO', 'Alcance 8 mm', 'Cabo 1000 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m18-00345413' },
-            { cod: '3427', ref: '60018849', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor M18 de corpo plástico', specs: ['NPN/NF', 'Alcance 8 mm', 'Cabo 322 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-m18-plastico-60018849' },
+            { cod: '3425', ref: '24052200', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor indutivo Horsch', specs: ['Cabo 1000 mm', 'Superseal 3VM', 'Especial Horsch', 'IP-67'], foto: 'horsch-m12-24052200' },
+            { cod: '3426', ref: '00345413', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor indutivo Horsch', specs: ['Cabo 1000 mm', 'Superseal 3VM', 'Especial Horsch', 'IP-67'], foto: 'horsch-m18-00345413' },
+            { cod: '3427', ref: '60018849', linhas: ['horsch'], tipo: 'sensor', nome: 'Sensor Horsch de corpo plástico', specs: ['Cabo 322 mm', 'Superseal 3VM', 'Especial Horsch', 'IP-67'], foto: 'horsch-m18-plastico-60018849' },
             { cod: '3429', ref: '00346714', linhas: ['horsch'], tipo: 'peca', nome: 'Interruptor encapsulado liga/desliga', specs: ['50 x 65 x 37 mm', 'Superseal 3VM', 'IP-67'], foto: 'horsch-interruptor-00346714' },
 
-            { cod: '1327', ref: '86951523', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12P-SD2-CO', specs: ['M12', 'PNP', 'Levante, velocidade (roda) e turbina', 'Índice de troca alto'] },
-            { cod: '1328', ref: '86951511', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CO', specs: ['M12', 'NPN', 'RPM da turbina (3 por máquina) e rodado Soltt (1 por máquina)', 'Índice de troca alto'] },
-            { cod: '1329', ref: '86951516', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CA', specs: ['M12', 'NPN', 'Superseal 3VM', 'RPM da turbina Sol Tower', 'Índice de troca médio'] },
+            { cod: '1327', ref: '86951523', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12P-SD2-CO', specs: ['Levante, velocidade (roda) e turbina', 'Índice de troca alto'] },
+            { cod: '1328', ref: '86951511', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CO', specs: ['RPM da turbina (3 por máquina) e rodado Soltt (1 por máquina)', 'Índice de troca alto'] },
+            { cod: '1329', ref: '86951516', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SIA-12N-SD2-CA', specs: ['Superseal 3VM', 'RPM da turbina Sol Tower', 'Índice de troca médio'] },
             { cod: '1330', ref: '86951512', linhas: ['semeato'], tipo: 'sensor', nome: 'Sensor SMA-12NA-SD8-CA', specs: ['Superseal 3VM', 'Levante da plantadeira Soltt', 'Índice de troca alto'] },
             { cod: '646', ref: '76197101', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/2S', specs: ['2 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 5VM'] },
             { cod: '652', ref: '76197102', linhas: ['semeato'], tipo: 'circuito', nome: 'Circuito CORT-02/3S', specs: ['3 sensores', 'Temporização 10 s', 'Cabo 2 m', 'Superseal 5VM'] },
@@ -913,11 +913,11 @@
 
             { cod: '324', ref: '73104992', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de rotação SRA-01/ST', specs: ['Aplicação: Hércules', 'Suporte de fixação', 'Superseal', 'Índice de troca alto'], foto: 'stara-sra01-73104992' },
             { cod: '325', ref: '73104045', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor de velocidade SVA-01/ST', specs: ['Aplicação: Hércules', 'Índice de troca alto'] },
-            { cod: '3532', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor indutivo M12 faceado', specs: ['NPN NO/NC', 'Alcance 2 mm', 'Conector M12 4 pinos', 'IP-67'] },
+            { cod: '3532', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Sensor indutivo faceado', specs: ['Conector 4 pinos', 'IP-67'] },
 
             { cod: '', ref: '73104992', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor de rotação SRA-01/ST', specs: ['Aplicação: Hércules', 'Índice de troca alto'], preco: 190.82 },
             { cod: '', ref: '73104045', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor de velocidade SVA-01/ST', specs: ['Aplicação: Hércules', 'Índice de troca alto'], preco: 357.51 },
-            { cod: '', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor indutivo M12 faceado', specs: ['NPN NO/NC', 'Alcance 2 mm', 'Conector M12 4 pinos', 'IP-67'], preco: 316.43 },
+            { cod: '', ref: '73104063', linhas: ['stara'], tipo: 'sensor', nome: 'Linha ECO · Sensor indutivo faceado', specs: ['Conector 4 pinos', 'IP-67'], preco: 316.43 },
 
             { cod: '', ref: '', linhas: ['vencetudo'], tipo: 'sensor', nome: 'Sensor magnético SMA-01/VT', specs: ['Cabo 2,5 m', 'Levante da plantadeira', 'Índice de troca alto'], preco: 987.56 },
 
@@ -956,9 +956,9 @@
             { foto: 'kuhn-cmt01-k2', marca: 'Kuhn', ref: 'Y5937390', cod: '1687', nome: 'Monitor de turbinas CMT‑01/K2',
               texto: 'Acompanha dois sensores e sinaliza cada turbina por LED. Vem com chicote trançado para levar o sinal até a cabine.',
               ficha: [['Entradas', '2 sensores'], ['Temporização', '20 s'], ['Indicação', 'LED por turbina'], ['Ligação', 'Chicote até a cabine']] },
-            { foto: 'horsch-m18-plastico-60018849', marca: 'Horsch', ref: '60018849', cod: '3427', nome: 'Sensor M18 de corpo plástico',
+            { foto: 'horsch-m18-plastico-60018849', marca: 'Horsch', ref: '60018849', cod: '3427', nome: 'Sensor de corpo plástico',
               texto: 'Versão normalmente fechada, com cabo curto de 322 mm terminado em Superseal de 3 vias.',
-              ficha: [['Rosca', 'M18'], ['Saída', 'NPN-NF'], ['Alcance', '8 mm'], ['Cabo', '322 mm'], ['Conector', 'Superseal 3 vias'], ['Proteção', 'IP-67']] },
+              ficha: [['Cabo', '322 mm'], ['Conector', 'Superseal 3 vias'], ['Proteção', 'IP-67']] },
             { foto: 'horsch-interruptor-00346714', marca: 'Horsch', ref: '00346714', cod: '3429', nome: 'Interruptor encapsulado',
               texto: 'Caixa selada com alavanca liga/desliga e saída em Superseal de 3 vias, pronta para o chicote do implemento.',
               ficha: [['Dimensões', '50 x 65 x 37 mm'], ['Função', 'Liga/desliga'], ['Conector', 'Superseal 3 vias'], ['Proteção', 'IP-67']] },
@@ -975,11 +975,11 @@
 
         const CLIENTES = [
             { id: 'kuhn', nome: 'Kuhn', logo: 'kuhn', segmento: 'Plantio e pulverização',
-              itens: ['Sensores indutivos M8 a M18', 'Monitores de turbina CMT-01', 'Chave de levante SLM-01/HH'] },
+              itens: ['Sensores indutivos especiais Kuhn', 'Monitores de turbina CMT-01', 'Chave de levante SLM-01/HH'] },
             { id: 'stara', nome: 'Stara', logo: 'stara', segmento: 'Telemetria e taxa variável',
-              itens: ['Sensor de rotação SRA-01/ST', 'Sensor de velocidade SVA-01/ST', 'Sensores M12 com conector M12'] },
+              itens: ['Sensor de rotação SRA-01/ST', 'Sensor de velocidade SVA-01/ST', 'Sensores faceados com conector de 4 pinos'] },
             { id: 'horsch', nome: 'Horsch', logo: 'horsch', segmento: 'Plantio em alta velocidade',
-              itens: ['Sensores M12 e M18 com Superseal', 'Interruptor encapsulado'] },
+              itens: ['Sensores com conector Superseal', 'Interruptor encapsulado'] },
             { id: 'semeato', nome: 'Semeato', logo: 'semeato', segmento: 'Plantio direto',
               itens: ['Sensores M12', 'Circuitos de monitoramento CORT'] },
             { id: 'saojose', nome: 'São José', logo: 'sao-jose', segmento: 'Implementos robustos',
